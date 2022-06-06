@@ -28,8 +28,10 @@ The Bioinf Core Workshop Team is pleased to host two workshops this summer:
 
 * Composed of the two complementary workshops listed above, this workshop series is targeted toward researchers who would like to better understand the analysis of  differential gene expression in bulk RNA-Seq data. 
 * The workshop is entirely online and will be conducted over Zoom and Slack.
-* The series assumes basic knowledge of genetics but no previous coding/programming experience is necessary.
-* The cost is $300/seat for the entire two-workshop series. While it is possible to register for a single workshop, we recommend that you attend both. When you enroll in the RNA-Seq Demystified workshop, you can request to be automatically registered for Computational Foundations. Register at <a href="https://www.eventbrite.com/e/rna-seq-demystified-a-virtual-3-day-workshop-from-um-bionfcore-tickets-355465154847" target="_blank">EventBrite</a>. *(The Computational Foundations is free of charge; however please note that: 1) registration precedence is given to RNA-Seq Demystified attendees and 2) general admission registration for Computational Foundations opens later in Feburary.)*
+* Computational Foundations workshop assumes no previous coding/programming experience. 
+RNA-Seq Demystified assumes a basic knowledge of genetics and prior enrollment 
+in a Computational Foundations workshop, Software Carpentry workshop, or equivalent experience.
+* The cost is $300/seat for the entire two-workshop series. While it is possible to register for a single workshop, we recommend that you attend both. When you enroll in the RNA-Seq Demystified workshop, you can request to be automatically registered for Computational Foundations. Register at <a href="https://www.eventbrite.com/e/rna-seq-demystified-a-virtual-3-day-workshop-from-um-bionfcore-tickets-355465154847" target="_blank">EventBrite</a>. *(The Computational Foundations is free of charge; however please note that: 1) registration precedence is given to RNA-Seq Demystified attendees and 2) general admission registration for Computational Foundations opens later in July.)*
 * Registration closes 7/18/2022.
 
 
