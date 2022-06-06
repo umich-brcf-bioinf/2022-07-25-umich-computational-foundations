@@ -1,5 +1,5 @@
 ---
-title: "UM Bioinformatics Core Winter 2022 Workshop Series"
+title: "UM Bioinformatics Core Summer 2022 Workshop Series"
 author: ""
 output:
         html_document:
