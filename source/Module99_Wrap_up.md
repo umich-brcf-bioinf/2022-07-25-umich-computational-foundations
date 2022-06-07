@@ -104,6 +104,7 @@ to consider:
 | ![](images/Module00_headshots/headshot_cgates.jpg) | ![](images/Module00_headshots/headshot_mbradenb.jpg) | ![](images/Module00_headshots/headshot_rcavalca.jpg) | ![](images/Module00_headshots/headshot_trsaari.jpg) |
 |:-:|:-:|:-:|:-:|
 | **Chris** | **Marci** | **Raymond** | **Travis** |
+<!--
 | | | | |
 | ![](images/Module00_headshots/headshot_jmoltzau.jpg) | ![](images/Module00_headshots/headshot_sovacool.jpg) | ![](images/Module00_headshots/headshot_ncarruth.jpg) | ![](images/Module00_headshots/headshot_salucas.jpg) |
 |  **Jay** | **Kelly**| **Nick** | **Sarah** |
@@ -112,7 +113,7 @@ to consider:
 | **Dana** | **Matthew** | **Marisa** | **Sai** |
 | ![](images/Module00_headshots/headshot_weishwu.jpg) |
 | **Weisheng** |
-
+-->
 <br/>
 
 Thank you for participating on our workshop. We welcome your questions and

@@ -51,6 +51,7 @@ a[target="_blank"]::after {
 |:-:|:-:|:-:|:-:|
 | **Chris** | **Marci** | **Raymond** | **Travis** |
 | | | | |
+<!--
 | ![](images/Module00_headshots/headshot_jmoltzau.jpg) | ![](images/Module00_headshots/headshot_sovacool.jpg) | ![](images/Module00_headshots/headshot_ncarruth.jpg) | ![](images/Module00_headshots/headshot_salucas.jpg) |
 |  **Jay** | **Kelly**| **Nick** | **Sarah** |
 
@@ -61,7 +62,7 @@ a[target="_blank"]::after {
 | **Dana** | **Matthew** | **Marisa** | **Sai** |
 | ![](images/Module00_headshots/headshot_weishwu.jpg) |
 | **Weisheng** |
-
+-->
 <br/>
 
 ## Workshop sponsors
