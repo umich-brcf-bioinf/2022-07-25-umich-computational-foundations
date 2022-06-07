@@ -14,7 +14,7 @@
 
 <title>Computational Foundations Workshop</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -70,6 +70,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -90,6 +91,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -315,7 +319,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -328,7 +332,7 @@ div.tocify {
   <a href="Module00_Introduction.html">Intro</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Bash Shell
      
     <span class="caret"></span>
@@ -355,7 +359,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     R and RStudio
      
     <span class="caret"></span>
@@ -474,69 +478,21 @@ src="images/Module00_headshots/headshot_trsaari.jpg" /></th>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
-<tr class="odd">
-<td align="center"><img
-src="images/Module00_headshots/headshot_jmoltzau.jpg" /></td>
-<td align="center"><img
-src="images/Module00_headshots/headshot_sovacool.jpg" /></td>
-<td align="center"><img
-src="images/Module00_headshots/headshot_ncarruth.jpg" /></td>
-<td align="center"><img
-src="images/Module00_headshots/headshot_salucas.jpg" /></td>
-</tr>
-<tr class="even">
-<td align="center"><strong>Jay</strong></td>
-<td align="center"><strong>Kelly</strong></td>
-<td align="center"><strong>Nick</strong></td>
-<td align="center"><strong>Sarah</strong></td>
-</tr>
 </tbody>
 </table>
-<div id="helpers-joining-tuesdaywednesday" class="section level3">
-<h3>(Helpers joining Tuesday/Wednesday)</h3>
-<table>
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center"><img
-src="images/Module00_headshots/headshot_damki.jpg" /></th>
-<th align="center"><img
-src="images/Module00_headshots/headshot_mflick.jpg" /></th>
-<th align="center"><img
-src="images/Module00_headshots/headshot_meese.jpg" /></th>
-<th align="center"><img
-src="images/Module00_headshots/headshot_spanapak.jpg" /></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><strong>Dana</strong></td>
-<td align="center"><strong>Matthew</strong></td>
-<td align="center"><strong>Marisa</strong></td>
-<td align="center"><strong>Sai</strong></td>
-</tr>
-<tr class="even">
-<td align="center"><img
-src="images/Module00_headshots/headshot_weishwu.jpg" /></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr class="odd">
-<td align="center"><strong>Weisheng</strong></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
+<!--
+| ![](images/Module00_headshots/headshot_jmoltzau.jpg) | ![](images/Module00_headshots/headshot_sovacool.jpg) | ![](images/Module00_headshots/headshot_ncarruth.jpg) | ![](images/Module00_headshots/headshot_salucas.jpg) |
+|  **Jay** | **Kelly**| **Nick** | **Sarah** |
+
+### (Helpers joining Tuesday/Wednesday)
+
+| ![](images/Module00_headshots/headshot_damki.jpg) | ![](images/Module00_headshots/headshot_mflick.jpg) | ![](images/Module00_headshots/headshot_meese.jpg) | ![](images/Module00_headshots/headshot_spanapak.jpg) |
+|:-:|:-:|:-:|:-:|
+| **Dana** | **Matthew** | **Marisa** | **Sai** |
+| ![](images/Module00_headshots/headshot_weishwu.jpg) |
+| **Weisheng** |
+-->
 <p><br/></p>
-</div>
 </div>
 <div id="workshop-sponsors" class="section level2">
 <h2>Workshop sponsors</h2>
