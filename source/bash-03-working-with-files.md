@@ -110,7 +110,7 @@ Do each of the following tasks from your current directory using a single `ls` c
 
 Bonus: List all of the files in `/usr/bin` that contain the letter 'a' or the letter 'c'.
 
-Hint: The bonus question requires a Unix wildcard that we haven't talked about yet. Try searching the internet for information about Unix wildcards to find what you need to solve the bonus problem.
+Hint: The bonus question requires a different syntax that we haven't talked about yet. We'll discuss it along with the other solutions.
 
 <details>
 <summary>Solution - Using wildcards</summary>
@@ -516,8 +516,8 @@ This will delete not only the directory, but all files within the directory. If 
 Starting in the `CF_Shell/untrimmed_fastq/` directory, do the following:
 
 1. Make sure that you have deleted your backup directory and all files it contains.  
-2. Create a backup of each of your FASTQ files using `cp`. (Note: You'll need to do this individually for each of the two FASTQ files. We haven't learned yet how to do this with a wildcard.)
-3. Use a wildcard to move all of your backup files to a new backup directory.   
+2. Create a backup of each of your FASTQ files using `cp`. (Note: You'll need to do this individually for each of the two FASTQ files. We haven't learned yet how to do this with a wildcard.)  
+3. Create a new backup directory, then use a wildcard to move all of your backup files there.  
 4. Change the permissions on all of your backup files to be write-protected.  
 
 <br>
@@ -528,8 +528,8 @@ Starting in the `CF_Shell/untrimmed_fastq/` directory, do the following:
 
 1. `rm -r backup`  
 2. `cp SRR098026.fastq SRR098026-backup.fastq` and `cp SRR097977.fastq SRR097977-backup.fastq`  
-3. `mkdir backup` and `mv *-backup.fastq backup`
-4. `chmod -w backup/*-backup.fastq`   
+3. `mkdir backup` and `mv *-backup.fastq backup`  
+4. `chmod -w backup/*-backup.fastq`  
 
 It's always a good idea to check your work with `ls -l backup`. You should see something like:
 
