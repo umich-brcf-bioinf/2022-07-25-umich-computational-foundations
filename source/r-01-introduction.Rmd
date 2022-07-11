@@ -6,7 +6,7 @@ output:
                 in_header: header.html
             theme: paper
             toc: true
-            number_sections: true
+            number_sections: false
             fig_caption: false
             markdown: GFM
             code_download: false
@@ -124,7 +124,7 @@ Now that we are ready to start exploring R, we will want to keep a record of the
 
 The new script **r_basics.R** is now in the `scripts` folder. You can see that by clicking the `scripts` folder in the "Files" pane. And you can go back up to the main project folder by clicking the `..` to the right of the up arrow in the "Files" pane. By convention, R scripts end with the file extension **.R**.
 
-## Overview and customization of the RStudio layout
+## Overview of RStudio layout
 
 Here are the major windows (or panes) of the RStudio environment:
 
@@ -142,16 +142,16 @@ Here are the major windows (or panes) of the RStudio environment:
 
 All of the panes in RStudio have configuration options. For example, you can minimize/maximize a pane, or by moving your mouse in the space between panes you can resize as needed. The most important customization options for pane layout are in the <KBD>View</KBD> menu. Other options such as font sizes, colors/themes, and more are in the <KBD>Tools</KBD> menu under <KBD>Global Options</KBD>.
 
->## You are working with R
-> Although we won't be working with R at the terminal, there are lots of reasons to. For example, once you have written an RScript, you can run it at any Linux or Windows terminal without the need to start up RStudio. We don't want you to get confused - RStudio runs R, but R is not RStudio. For more on running an R Script at the terminal see this [Software Carpentry lesson](https://swcarpentry.github.io/r-novice-inflammation/05-cmdline/).
+Although we won't be working with R at the terminal, there are lots of reasons to. For example, once you have written an RScript, you can run it at any Linux or Windows terminal without the need to start up RStudio. We don't want you to get confused - **RStudio runs R, but R is not RStudio**. For more on running an R Script at the terminal see this [Software Carpentry lesson](https://swcarpentry.github.io/r-novice-inflammation/05-cmdline/).
 
 # Working with R
 
-## Navigating directories
-Now that we have covered the more aesthetic aspects of RStudio, we can get to work using some commands. We will write, execute, and save the commands we learn in our **r_basics.R** script that is loaded in the Source pane. First, lets see what directory we are in. To do so, type the following command into the script:
+## A simple first command
+
+Now that we have covered the layout and aesthetic aspects of RStudio, we will get to work using some commands. We will write, execute, and save the commands we learn in our **r_basics.R** script that is loaded in the Source pane. For our first command in R, let's do some simple arithmetic. If we wanted to add two numbers together we could type the following into the R script and run it:
 
 ```{r, eval = FALSE, purl = FALSE}
-getwd()
+2 + 2
 ```
 
 To execute this command, make sure your cursor is on the same line the command is written. Then click the <KBD>Run</KBD> button that is just above the first line of your script in the header of the Source pane. Alternatively, you can use the appropriate shortcut:
@@ -161,14 +161,27 @@ To execute this command, make sure your cursor is on the same line the command i
 
 To run multiple lines of code, you can highlight all the lines you wish to run and then click <KBD>Run</KBD> or use the shortcut key combo listed above.
 
-In the console, we expect to see the following output*:
+In the console we should see the following output, notice that the instruction you executed is displayed above the output:
+
+~~~
+> 2 + 2
+[1] 4
+~~~
+
+## Navigating directories
+
+Next, lets see what directory we are in. To do so, type the following function into the script:
+
+```{r, eval = FALSE, purl = FALSE}
+getwd()
+```
+
+When we run it, you should see something similar to:
 
 ~~~
 > getwd()
 [1] "/home/workshop/rcavalca/CF_R"
 ~~~
-
-Notice, at the Console, you will also see the instruction you executed above the output in blue.
 
 Since we will be learning several commands, we may want to keep some short notes in our script to explain the purpose of the command. Entering a `#` before any line in an R script turns that line into a comment, which R will not try to interpret as code. Edit your script to include a comment on the purpose of commands you are learning, e.g.:
 
@@ -177,18 +190,7 @@ Since we will be learning several commands, we may want to keep some short notes
 getwd()
 ```
 
-
-> ## Exercise: Work interactively in R
-> What happens when you try to enter the `getwd()` command in the Console pane?
-
-<details>
-<summary>Solution</summary>
-
-You will get the same output you did as when you ran `getwd()` from the source. You can run any command in the Console, however, executing it from the source script will make it easier for us to record what we have done, and ultimately run an entire script, instead of entering commands one-by-one.
-
-</details>
-<br>
-
+What happens when you enter the `getwd()` command directly in the Console pane? The result is the same, except the code is not saved in your R script.
 
 For the purposes of this exercise we want you to be in the directory `"/home/workshop/user/CF_R"`. What if you weren't? You can set your home directory using the `setwd()` command. Enter this command in your script, but *don't run* this yet.
 
@@ -197,14 +199,14 @@ For the purposes of this exercise we want you to be in the directory `"/home/wor
 setwd()
 ```
 
-You may have guessed, you need to tell the `setwd()` command what directory you want to set as your working directory. To do so, inside of the parentheses, open a set of quotes. Inside the quotes enter a `/` which is the root directory for Linux. Next, use the <KBD>Tab</KBD> key, to take advantage of RStudio's Tab-autocompletion method, to select `home`, `user`, and `CF_R` directory. The path in your script should look like this:
+You may have guessed, you need to tell the `setwd()` command what directory you want to set as your working directory. To do so, inside of the parentheses, open a set of quotes. Inside the quotes enter a `/` which is the root directory for Linux. Next, use the <KBD>Tab</KBD> key, to take advantage of RStudio's Tab-autocompletion method, to select `home`, `user` (your particular user name), and `CF_R` directory. The path in your script should look like this:
 
 ```{r, eval = FALSE, purl = FALSE}
 # This sets the working directory
 setwd("/home/workshop/user/CF_R")
 ```
 
-When you run this command, the console repeats the command, but gives you no output. Instead, you see the blank R prompt: `>`. Congratulations! Although it seems small, knowing what your working directory is and being able to set your working directory is the first step to analyzing your data.
+When you run this command, the console repeats the command, but gives you no output. Instead, you see the blank R prompt: `>`. Although it seems small, knowing what your working directory is and being able to set your working directory is the first step to analyzing your data.
 
 > ## Tip: Be careful with `setwd()`
 >
@@ -213,7 +215,7 @@ When you run this command, the console repeats the command, but gives you no out
 
 ## Using functions in R
 
-A function in R (or any computing language) is a short program that takes some input and returns some output. Functions may seem like an advanced topic (and they are), but you have already used at least one function in R. `getwd()` is a function! The next sections will help you understand what is happening in any R script.
+A function in R (or any computing language) is a short program that takes some input and returns some output. Functions may seem like an advanced topic (they are can be), but you have already used at least one function in R: `getwd()`. Let's try running some other functions and see what they do:
 
 > ## Exercise: What do these functions do?
 >
@@ -237,11 +239,11 @@ Notice that commands are **case-sensitive**!
 </details>
 <br>
 
-You have hopefully noticed a pattern - an R function has three key properties:
+Functions in R have three key properties that you may have noticed:
 
-- Functions have case-sensitive names (e.g. `dir`, `Sys.time`).
-- Following the name, functions have a pair of `()`.
-- Inside the parentheses, a function may take 0 or more arguments.
+1. Functions have case-sensitive names (e.g. `dir`, `Sys.time`).
+2. Following the name, functions have a pair of `()`.
+3. Inside the parentheses, a function may take 0 or more arguments.
 
 An argument may be a specific input for your function and/or may modify the function's behavior. For example the function `round()` will round a number with a decimal:
 
@@ -264,7 +266,7 @@ The "Help" tab will show you information (often, too much information). You will
 args(round)
 ```
 
-`round()` takes two arguments, `x`, which is the number to be rounded, and a `digits` argument. The `=` sign indicates that a default (in this case 0) is already set. Since `x` is not set, `round()` requires we provide it, in contrast to `digits` where R will use the default value 0 unless you explicitly provide a different value. We can explicitly set the digits parameter when we call the function:
+`round()` takes two arguments, `x`, which is the number to be rounded, and a `digits` argument. The `=` sign indicates that a default is already set (in this case 0). Since `x` is not set, `round()` requires we provide it, in contrast to `digits` where R will use the default value 0 unless you explicitly provide a different value. We can explicitly set the digits parameter when we call the function:
 
 ```{r}
 round(3.14159, digits = 2)
@@ -281,7 +283,9 @@ round(3.14159, 2)
 > For the `round()` example above, we only used two arguments, and their meaning is relatively clear. But functions can have many arguments, and your code will be more readable if you specify argument values along with argument names, as in `round(3.14159, digits = 2)`.
 <br>
 
-Finally, what if you are using `?` to try to get help for a function in a package installed on your system but not loaded? If we try:
+## More ways to get help
+
+What if you are using `?` to try to get help for a function in a package installed on your system but not loaded? If we try:
 
 ```{r, eval=FALSE}
 ?geom_point()
@@ -294,7 +298,9 @@ No documentation for ‘geom_point’ in specified packages and libraries:
 you could try ‘??geom_point’
 ~~~
 
-We can try using two question marks (i.e. `??geom_point()`) and R will return results from a search of the documentation for packages you have installed on your computer in the "Help" tab. Finally, if you think there should be a function, for example a statistical test, but you aren't sure what it is called in R, or what functions may be available, use the `help.search()` function.
+We can use two question marks (i.e. `??geom_point()`) and R will return results from a search of the documentation for packages you have installed on your computer in the "Help" tab.
+
+Finally, if you think there should be a function, for example a statistical test, but you aren't sure what it is called in R, or what functions may be available, use the `help.search()` function.
 
 > ## Exercise: Searching for R functions
 > Use `help.search()` to find R functions for the following statistical functions. Remember to put your search query in quotes inside the function's parentheses.
@@ -330,7 +336,13 @@ Once you type a function, hitting the <KBD>Tab</KBD> inside the parentheses will
 
 <img src="images/studio_contexthelp2.png" alt="rstudio default session" style="width: 600px;"/>
 
-> ## Tip: Typos are the most common source of errors!
->
-> When programming in any language, you will encounter errors. Sometimes they can be the result of some complicated behavior, but very often they tend to be the result of a typo. This can take the form of mis-spellings (e.g. `dri()`), but they can also be in the form of missing quotes or mis-matched parentheses.
-<br>
+## Errors happen
+
+When programming in any language, you will encounter errors. Sometimes they can be the result of some complicated behavior, but, **most often, they tend to be the result of a typo**. This can take the form of mis-spellings (e.g. `dri()`), but they can also be in the form of missing quotes or mis-matched parentheses.
+
+When reporting an error in this workshop, or an online forum when you're asking for help, it is best to:
+
+1. Give the exact command you ran that caused the error.
+2. Give the exact error message that resulted.
+
+Often people will ask for a "minimally reproducible example". Essentially this means providing the definition of all the R objects that go into the function so that other users can try to reproduce the problem, and then figure out what's going wrong.
