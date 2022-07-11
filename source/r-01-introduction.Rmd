@@ -57,9 +57,11 @@ source("../bin/chunk-options.R")
 knitr_fig_path("01-")
 ```
 
-# Orientation
+# Overview
 
 In this lesson we will introduce you to RStudio, an Integrated Development Environment (IDE), that provides a simple and convenient graphical interface for using R. We have pre-configured this environment for you so that we can quickly jump into the nuts and bolts of R and RStudio rather than spending time on installing software. Though we are happy to offer guidance on setting up R and RStudio on your own computers after the workshop.
+
+In this lesson we will introduce how to run commands, save code, and find help.
 
 ## A Brief History of R
 
