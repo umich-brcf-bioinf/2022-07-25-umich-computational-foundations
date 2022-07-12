@@ -68,7 +68,7 @@ In this lesson we will learn the different types of objects in R, how to create 
 
 # Getting started with objects
 
-## Creating objects in R
+## Creating objects
 
 What might be called a variable in many languages is called an **object** in R (but you can also call it a variable).
 
@@ -103,7 +103,7 @@ In the 'Environment' window you will also get a table:
 
 The 'Environment' window allows you to keep track of the objects you have created in R.
 
-> ## Exercise: Create some objects in R
+> ## Exercise: Create some objects
 >
 > Create the following objects:
 >
@@ -125,7 +125,7 @@ gene_name <- 'pten'
 >
 > Many people use `=` as their preferred assignment operator in R instead of `<-`, and this is just as well. Here is a [blog post](https://www.r-bloggers.com/2010/11/assignment-operators-in-r-%E2%80%98%E2%80%99-vs-%E2%80%98-%E2%80%99/) discussing the differences.
 
-## Naming objects in R
+## Naming objects
 
 We can't choose any name we like for objects in R, and there are some best practices that may help you write clear, readable code:
 
@@ -138,7 +138,7 @@ We can't choose any name we like for objects in R, and there are some best pract
 
 There are a few more suggestions about naming and style you may want to learn more about as you write more R code. There are several "style guides" that have advice, and one to start with is the [tidyverse R style guide](http://style.tidyverse.org/index.html).
 
-## Reassigning object names or deleting objects
+## Reassigning object names and deleting objects
 
 Once an object has a value, you can change that value by overwriting it. R will not give you a warning or error if you overwriting an object, which may or may not be a good thing depending on how you look at it.
 
@@ -245,7 +245,13 @@ class(continents_factor)
 as.integer(continents_factor)
 ```
 
-Note, by default, the `levels` of a factor are the unique elements of the `character` vector in alphabetical order. You can specify an order by explicitly defining the levels as in:
+We observe a few things with this string of commands:
+
+1. It looks like the type of `continents_factor` is an integer vector.
+2. But there is a class of vectors, called factors. R will often take into account the class of an object to decide how a function will act on it.
+3. By default the `levels` of a factor are the unique elements of the character vector in alphabetical order.
+
+You can specify an order by explicitly defining the levels as in:
 
 ```{r}
 continents_factor = factor(continents, levels = c('South America', 'Asia', 'Africa', 'North America'))
@@ -253,7 +259,7 @@ continents_factor
 as.integer(continents_factor)
 ```
 
-Notice that the integer representation of the vector changed order, because the levels changed order.
+Notice that the integer representation of the vector changed order, because the levels changed order. This will be useful later in the RNA-seq Demystified lessons when we discuss testing for differential expression.
 
 ## Matrices and Arrays
 
@@ -263,10 +269,16 @@ A matrix stores values in a two-dimensional array, as in a matrix from linear al
 country_matrix = matrix(countries, nrow = 2)
 country_matrix
 typeof(country_matrix)
+class(country_matrix)
+```
 
+Notice again here, that the type and class of the matrices are different. R thinks of a matrix as a special case of an atomic vector, that is, one that has two dimensions. Let's look at another example using the `country_population` vector.
+
+```{r}
 population_matrix = matrix(country_population, nrow = 2)
 population_matrix
 typeof(population_matrix)
+class(population_matrix)
 ```
 
 For these lessons, we will not focus very much on matrices other than for this introduction. We wanted to introduce the idea, as you are very likely to encounter matrices when working with certain libraries and performing certain analyses.
