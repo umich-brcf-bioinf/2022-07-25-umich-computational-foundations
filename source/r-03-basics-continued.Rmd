@@ -303,8 +303,6 @@ And of course, these can be combined to subset the data frame into another data 
 country_df[c('Thailand', 'Canada'), c('countries', 'populations')]
  ```
 
-Note, the dollar-sign notation can only access a single column.
-
 Finally, as with vectors, we can also subset rows or columns of data frames with logical vectors. Let's use the `keep_data` vector to subset the rows of `country_df`:
 
 ```{r}
@@ -313,7 +311,7 @@ country_df[keep_data, ]
 
 > ### A Warning
 
-Could we use `keep_data` to subest the columns of `country_df`? Why or why not?
+Could we use `keep_data` to subset the columns of `country_df`? Why or why not?
 
 ```{r error = TRUE}
 country_df[, keep_data]
@@ -331,7 +329,7 @@ What has R done here? Since `country_df` has 3 columns, and the logical vector w
 country_df[, c(TRUE, FALSE, TRUE)]
 ```
 
-This illustrates that code can do things unexpected, and these unexpected things might cause errors in analysis, or downstream errors that are hard to detect.
+This illustrates that code can do unexpected things, and these unexpected things might cause errors in analysis, or downstream errors that are hard to detect.
 
 In the above examples we input a logical directly to subset rows or columns, but we can also use a conditional statement. For example, if we wanted to subset the rows of `country_df` to only those countries with more than 10,000,000 inhabitants, we could do:
 
@@ -347,7 +345,7 @@ country_df$populations > 10000000
 
 And it used this logical vector in the same way it did when we manually defined a vector of `TRUE` and `FALSE` values.
 
-In all the code above, we did not assign the result of any of our commands to a new variable, so the accessing/subsetting was not persistent. If we wanted to create a new data frame that only shows Thailand's and Canada's populations, we could create a new variable and assign it the correct value:
+In all the code above, we did not assign the result of any of our commands to a new variable, so the accessing/subsetting was not persistent--it was not stored. If we wanted to create a new data frame that only shows Thailand's and Canada's populations, we could create a new variable and assign it the correct value:
 
 ```{r}
 subset_df <- country_df[c('Thailand', 'Canada'), c('countries', 'populations')]
