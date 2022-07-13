@@ -114,12 +114,9 @@ BiocManager::install(c('tidyverse', 'DESeq2', 'sartorlab/methylSig'))
 
 While this workshop series focuses on differential expression analysis of RNA-seq data, there are many different types of data and analyses that bioinformaticians may want to work with. Sometimes you may get a new dataset and not know exactly where to start with analyzing or visualizing it. The Bioconductor package search view can be a great way to browse through the packages that are available.
 
-![screenshot of bioconductor search](images/bioconductor_search.jpg)
+There are several thousand packages available through the Bioconductor website. It can be a bit of a challenge to find what you want, but one helpful resource is the [package search page](https://bioconductor.org/packages/release/BiocViews.html#___Software) (pictured below).
 
-> ## Tip: Searching for packages on the Bioconductor website
->
-> There are several thousand packages available through the Bioconductor website. It can be a bit of a challenge to find what you want, but one helpful resource is the [package search page](https://bioconductor.org/packages/release/BiocViews.html#___Software).
->
+![screenshot of bioconductor search](images/bioconductor_search.jpg)
 
 # Resources
 
