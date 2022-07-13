@@ -35,7 +35,7 @@ render_site('source/bash-06-organization.md')
 
 render_site('source/r-01-introduction.Rmd')
 render_site('source/r-02-r-basics.Rmd')
-render_site('source/r-03-basics-factors-dataframes.Rmd')
+render_site('source/r-03-basics-continued.Rmd')
 render_site('source/r-04-bioconductor.Rmd')
 render_site('source/r-05-dplyr.Rmd')
 render_site('source/r-06-data-visualization.Rmd')
