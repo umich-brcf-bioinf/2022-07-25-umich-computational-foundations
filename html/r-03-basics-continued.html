@@ -703,7 +703,6 @@ another data frame, as in:</p>
 <pre><code>         countries populations
 Thailand  Thailand    69950850
 Canada      Canada    38436447</code></pre>
-<p>Note, the dollar-sign notation can only access a single column.</p>
 <p>Finally, as with vectors, we can also subset rows or columns of data
 frames with logical vectors. Let’s use the <code>keep_data</code> vector
 to subset the rows of <code>country_df</code>:</p>
@@ -715,7 +714,7 @@ Canada      Canada North America    38436447</code></pre>
 <blockquote>
 <h3 id="a-warning">A Warning</h3>
 </blockquote>
-<p>Could we use <code>keep_data</code> to subest the columns of
+<p>Could we use <code>keep_data</code> to subset the columns of
 <code>country_df</code>? Why or why not?</p>
 <pre class="r"><code>country_df[, keep_data]</code></pre>
 <pre><code>Error in `[.data.frame`(country_df, , keep_data): undefined columns selected</code></pre>
@@ -739,7 +738,7 @@ Thailand  Thailand    69950850
 Lesotho    Lesotho     2108328
 Suriname  Suriname      575990
 Canada      Canada    38436447</code></pre>
-<p>This illustrates that code can do things unexpected, and these
+<p>This illustrates that code can do unexpected things, and these
 unexpected things might cause errors in analysis, or downstream errors
 that are hard to detect.</p>
 <p>In the above examples we input a logical directly to subset rows or
@@ -759,9 +758,9 @@ manually defined a vector of <code>TRUE</code> and <code>FALSE</code>
 values.</p>
 <p>In all the code above, we did not assign the result of any of our
 commands to a new variable, so the accessing/subsetting was not
-persistent. If we wanted to create a new data frame that only shows
-Thailand’s and Canada’s populations, we could create a new variable and
-assign it the correct value:</p>
+persistent–it was not stored. If we wanted to create a new data frame
+that only shows Thailand’s and Canada’s populations, we could create a
+new variable and assign it the correct value:</p>
 <pre class="r"><code>subset_df &lt;- country_df[c(&#39;Thailand&#39;, &#39;Canada&#39;), c(&#39;countries&#39;, &#39;populations&#39;)]
 subset_df</code></pre>
 <pre><code>         countries populations
