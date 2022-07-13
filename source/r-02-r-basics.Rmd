@@ -164,7 +164,7 @@ Error: object 'gene_name' not found
 
 # Objects in R
 
-## Atomic Vectors
+## Atomic vectors
 
 The most basic object in R is called an "atomic vector" or just a vector. It is a simple vector of data of the same type. You've actually already created two vectors already with the objects `a`, `human_chr_number`, and `gene_name`, they are just vectors of length 1.
 
@@ -189,8 +189,8 @@ typeof(continents)
 A double (or numeric) vector stores real numbers. They can be positive or negative, large or small, and be whole or have decimal representations.
 
 ```{r}
-country_population <- c(69950850, 2108328, 575990, 38436447) # Source: Wikipedia
-typeof(country_population)
+country_populations <- c(69950850, 2108328, 575990, 38436447) # Source: Wikipedia
+typeof(country_populations)
 ```
 
 ### Integers
@@ -198,8 +198,8 @@ typeof(country_population)
 Integer vectors store integers, which are whole numbers. It is rather rare to use integer vectors explicitly. Doubles are much more common. An integer vector can be created by adding an `L` after the number, as in:
 
 ```{r}
-integer_country_population <- c(69950850L, 2108328L, 575990L, 38436447L)
-typeof(integer_country_population)
+integer_country_populations <- c(69950850L, 2108328L, 575990L, 38436447L)
+typeof(integer_country_populations)
 ```
 
 ### Logicals
@@ -219,18 +219,18 @@ typeof(keep_data)
 
 ### Names
 
-Names can be given to the elements of an atomic vector using the `names()` function. This can be useful for keeping track of the elements of the objects. For example, we can alter the `country_population` vector to have the country as the name of each population:
+Names can be given to the elements of an atomic vector using the `names()` function. This can be useful for keeping track of the elements of the objects. For example, we can alter the `country_populations` vector to have the country as the name of each population:
 
 ```{r}
-names(country_population) = c("Thailand","Lesotho","Suriname","Canada")
-country_population
+names(country_populations) = c("Thailand","Lesotho","Suriname","Canada")
+country_populations
 ```
 
 Alternatively, we already have a vector of country names in `countries`, so an alternative to the above is:
 
 ```{r}
-names(country_population) = countries
-country_population
+names(country_populations) = countries
+country_populations
 ```
 
 ## Factors
@@ -272,10 +272,10 @@ typeof(country_matrix)
 class(country_matrix)
 ```
 
-Notice again here, that the type and class of the matrices are different. R thinks of a matrix as a special case of an atomic vector, that is, one that has two dimensions. Let's look at another example using the `country_population` vector.
+Notice again here, that the type and class of the matrices are different. R thinks of a matrix as a special case of an atomic vector, that is, one that has two dimensions. Let's look at another example using the `country_populations` vector.
 
 ```{r}
-population_matrix = matrix(country_population, nrow = 2)
+population_matrix = matrix(country_populations, nrow = 2)
 population_matrix
 typeof(population_matrix)
 class(population_matrix)
@@ -290,7 +290,7 @@ If a matrix is two-dimensional (with rows and columns) and the contents are of a
 Lists are like atomic vectors in that they group data into a one-dimensional set, but lists group together **other R objects**, such as atomic vectors or other lists. The best way to see this is with an example:
 
 ```{r}
-country_list = list(countries, continents, country_population)
+country_list = list(countries, continents, country_populations)
 country_list
 typeof(country_list)
 ```
@@ -307,7 +307,7 @@ country_list
 And the second is to name them as we create the list:
 
 ```{r}
-country_list = list(countries = countries, continents = continents, populations = country_population)
+country_list = list(countries = countries, continents = continents, populations = country_populations)
 country_list
 ```
 
@@ -318,7 +318,7 @@ Of all the data types we've seen so far, matrices come closest to the idea of a 
 Data frames group vectors together into a two-dimensional table, where each vector becomes a column of the table. The data types within each column must be the same (they are vectors after all), but the columns can be of different data types. Let's construct our first data frame using some vectors we have laying around. Here we will include column names from the start:
 
 ```{r}
-country_df = data.frame(countries = countries, continents = continents, populations = country_population)
+country_df = data.frame(countries = countries, continents = continents, populations = country_populations)
 country_df
 typeof(country_df)
 class(country_df)
@@ -328,6 +328,6 @@ Notice that since the names of all the vectors are those of the countries, the r
 
 # Summary
 
-The following figure is a helpful way to summarize what we've learned about the objects in R:
+The following figure is a helpful way to summarize what we've learned about the objects in R. There are objects that only allow a single type of data: vectors, matrices, and arrays. There are other objects that allow multiple types of data: lists and data frames. The types of data that we encountered are doubles, characters, and logicals.
 
 <img src="images/r_data_structures.png" alt="R data structures" style="width:1000px;"/>

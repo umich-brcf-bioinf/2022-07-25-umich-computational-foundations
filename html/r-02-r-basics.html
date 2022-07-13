@@ -343,7 +343,7 @@ object names and deleting objects</a></li>
 </ul></li>
 <li><a href="#objects-in-r">Objects in R</a>
 <ul>
-<li><a href="#atomic-vectors">Atomic Vectors</a>
+<li><a href="#atomic-vectors">Atomic vectors</a>
 <ul>
 <li><a href="#characters">Characters</a></li>
 <li><a href="#doubles-numerics">Doubles / Numerics</a></li>
@@ -544,7 +544,7 @@ Error: object &#39;gene_name&#39; not found</code></pre>
 <div id="objects-in-r" class="section level1">
 <h1>Objects in R</h1>
 <div id="atomic-vectors" class="section level2">
-<h2>Atomic Vectors</h2>
+<h2>Atomic vectors</h2>
 <p>The most basic object in R is called an “atomic vector” or just a
 vector. It is a simple vector of data of the same type. You’ve actually
 already created two vectors already with the objects <code>a</code>,
@@ -570,8 +570,8 @@ typeof(continents)</code></pre>
 <p>A double (or numeric) vector stores real numbers. They can be
 positive or negative, large or small, and be whole or have decimal
 representations.</p>
-<pre class="r"><code>country_population &lt;- c(69950850, 2108328, 575990, 38436447) # Source: Wikipedia
-typeof(country_population)</code></pre>
+<pre class="r"><code>country_populations &lt;- c(69950850, 2108328, 575990, 38436447) # Source: Wikipedia
+typeof(country_populations)</code></pre>
 <pre><code>[1] &quot;double&quot;</code></pre>
 </div>
 <div id="integers" class="section level3">
@@ -580,8 +580,8 @@ typeof(country_population)</code></pre>
 rare to use integer vectors explicitly. Doubles are much more common. An
 integer vector can be created by adding an <code>L</code> after the
 number, as in:</p>
-<pre class="r"><code>integer_country_population &lt;- c(69950850L, 2108328L, 575990L, 38436447L)
-typeof(integer_country_population)</code></pre>
+<pre class="r"><code>integer_country_populations &lt;- c(69950850L, 2108328L, 575990L, 38436447L)
+typeof(integer_country_populations)</code></pre>
 <pre><code>[1] &quot;integer&quot;</code></pre>
 </div>
 <div id="logicals" class="section level3">
@@ -604,16 +604,16 @@ typeof(keep_data)</code></pre>
 <p>Names can be given to the elements of an atomic vector using the
 <code>names()</code> function. This can be useful for keeping track of
 the elements of the objects. For example, we can alter the
-<code>country_population</code> vector to have the country as the name
+<code>country_populations</code> vector to have the country as the name
 of each population:</p>
-<pre class="r"><code>names(country_population) = c(&quot;Thailand&quot;,&quot;Lesotho&quot;,&quot;Suriname&quot;,&quot;Canada&quot;)
-country_population</code></pre>
+<pre class="r"><code>names(country_populations) = c(&quot;Thailand&quot;,&quot;Lesotho&quot;,&quot;Suriname&quot;,&quot;Canada&quot;)
+country_populations</code></pre>
 <pre><code>Thailand  Lesotho Suriname   Canada 
 69950850  2108328   575990 38436447 </code></pre>
 <p>Alternatively, we already have a vector of country names in
 <code>countries</code>, so an alternative to the above is:</p>
-<pre class="r"><code>names(country_population) = countries
-country_population</code></pre>
+<pre class="r"><code>names(country_populations) = countries
+country_populations</code></pre>
 <pre><code>Thailand  Lesotho Suriname   Canada 
 69950850  2108328   575990 38436447 </code></pre>
 </div>
@@ -678,8 +678,8 @@ country_matrix</code></pre>
 <p>Notice again here, that the type and class of the matrices are
 different. R thinks of a matrix as a special case of an atomic vector,
 that is, one that has two dimensions. Let’s look at another example
-using the <code>country_population</code> vector.</p>
-<pre class="r"><code>population_matrix = matrix(country_population, nrow = 2)
+using the <code>country_populations</code> vector.</p>
+<pre class="r"><code>population_matrix = matrix(country_populations, nrow = 2)
 population_matrix</code></pre>
 <pre><code>         [,1]     [,2]
 [1,] 69950850   575990
@@ -703,7 +703,7 @@ lessons.</p>
 one-dimensional set, but lists group together <strong>other R
 objects</strong>, such as atomic vectors or other lists. The best way to
 see this is with an example:</p>
-<pre class="r"><code>country_list = list(countries, continents, country_population)
+<pre class="r"><code>country_list = list(countries, continents, country_populations)
 country_list</code></pre>
 <pre><code>[[1]]
 [1] &quot;Thailand&quot; &quot;Lesotho&quot;  &quot;Suriname&quot; &quot;Canada&quot;  
@@ -733,7 +733,7 @@ $populations
 Thailand  Lesotho Suriname   Canada 
 69950850  2108328   575990 38436447 </code></pre>
 <p>And the second is to name them as we create the list:</p>
-<pre class="r"><code>country_list = list(countries = countries, continents = continents, populations = country_population)
+<pre class="r"><code>country_list = list(countries = countries, continents = continents, populations = country_populations)
 country_list</code></pre>
 <pre><code>$countries
 [1] &quot;Thailand&quot; &quot;Lesotho&quot;  &quot;Suriname&quot; &quot;Canada&quot;  
@@ -757,7 +757,7 @@ each column must be the same (they are vectors after all), but the
 columns can be of different data types. Let’s construct our first data
 frame using some vectors we have laying around. Here we will include
 column names from the start:</p>
-<pre class="r"><code>country_df = data.frame(countries = countries, continents = continents, populations = country_population)
+<pre class="r"><code>country_df = data.frame(countries = countries, continents = continents, populations = country_populations)
 country_df</code></pre>
 <pre><code>         countries    continents populations
 Thailand  Thailand          Asia    69950850
@@ -775,7 +775,10 @@ countries, the row names are named in the same manner.</p>
 <div id="summary" class="section level1">
 <h1>Summary</h1>
 <p>The following figure is a helpful way to summarize what we’ve learned
-about the objects in R:</p>
+about the objects in R. There are objects that only allow a single type
+of data: vectors, matrices, and arrays. There are other objects that
+allow multiple types of data: lists and data frames. The types of data
+that we encountered are doubles, characters, and logicals.</p>
 <p><img src="images/r_data_structures.png" alt="R data structures" style="width:1000px;"/></p>
 </div>
 
