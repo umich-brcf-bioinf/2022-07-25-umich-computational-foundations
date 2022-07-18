@@ -39,7 +39,7 @@ that will enable more efficient, reproducible, and impactful computational resea
 
 ## Housekeeping
 
-- Please take our optional <a class="external" href="https://forms.gle/mmHP6ve3xbtU2iQy6" target="_blank">post-workshop survey</a> (5-10 minutes) <br />
+- Please take our optional <a class="external" href="https://forms.gle/MicfgHWzBkZyNiy97" target="_blank">post-workshop survey</a> (5-10 minutes) <br />
 
 - We will email you a link to the final session recordings by next week.
 
@@ -75,7 +75,7 @@ to consider:
 - <a class="external" target="_blank" href="https://explainshell.com/">ExplainShell.com</a> can elaborate the flags of specific Bash commands:
 - Regular expression syntax (aka "regex") is extremely powerful but also a broad topic unto itself
   - <a class="external" target="_blank" href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">Regex tutorial — A quick cheatsheet by examples</a>
-  - A bit like ExplainShell above, but for regex expressions (thanks, Piyush!):<br/>
+  - A bit like ExplainShell above, but for regex expressions:<br/>
   <a class="external" target="_blank" href="https://regexr.com/">https://regexr.com/</a>
 - Intro lessons and workshops in Bash / Git / R / Python : 
   - <a class="external" href="https://software-carpentry.org/lessons/" target="_blank">Software Carpentry</a> 
@@ -104,16 +104,13 @@ to consider:
 | ![](images/Module00_headshots/headshot_cgates.jpg) | ![](images/Module00_headshots/headshot_mbradenb.jpg) | ![](images/Module00_headshots/headshot_rcavalca.jpg) | ![](images/Module00_headshots/headshot_trsaari.jpg) |
 |:-:|:-:|:-:|:-:|
 | **Chris** | **Marci** | **Raymond** | **Travis** |
-<!--
 | | | | |
-| ![](images/Module00_headshots/headshot_jmoltzau.jpg) | ![](images/Module00_headshots/headshot_sovacool.jpg) | ![](images/Module00_headshots/headshot_ncarruth.jpg) | ![](images/Module00_headshots/headshot_salucas.jpg) |
-|  **Jay** | **Kelly**| **Nick** | **Sarah** |
-| | | | |
-| ![](images/Module00_headshots/headshot_damki.jpg) | ![](images/Module00_headshots/headshot_mflick.jpg) | ![](images/Module00_headshots/headshot_meese.jpg) | ![](images/Module00_headshots/headshot_spanapak.jpg) |
-| **Dana** | **Matthew** | **Marisa** | **Sai** |
-| ![](images/Module00_headshots/headshot_weishwu.jpg) |
-| **Weisheng** |
--->
+| ![](images/Module00_headshots/headshot_mccwen.jpg) | ![](images/Module00_headshots/headshot_damki.jpg) | ![](images/Module00_headshots/headshot_imorse.jpg) | ![](images/Module00_headshots/headshot_dengkw.jpg) |
+|  **Crystal** | **Dana** | **Irene**| **Kaiwen** |
+| | | |
+| ![](images/Module00_headshots/headshot_meese.jpg) | ![](images/Module00_headshots/headshot_mkdohert.jpg) | ![](images/Module00_headshots/headshot_jrhemama.jpg) |
+| **Marisa** | **Matt** | **Rhema** |
+
 <br/>
 
 Thank you for participating on our workshop. We welcome your questions and
