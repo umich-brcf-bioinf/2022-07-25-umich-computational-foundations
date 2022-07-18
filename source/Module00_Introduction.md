@@ -51,18 +51,12 @@ a[target="_blank"]::after {
 |:-:|:-:|:-:|:-:|
 | **Chris** | **Marci** | **Raymond** | **Travis** |
 | | | | |
-<!--
-| ![](images/Module00_headshots/headshot_jmoltzau.jpg) | ![](images/Module00_headshots/headshot_sovacool.jpg) | ![](images/Module00_headshots/headshot_ncarruth.jpg) | ![](images/Module00_headshots/headshot_salucas.jpg) |
-|  **Jay** | **Kelly**| **Nick** | **Sarah** |
+| ![](images/Module00_headshots/headshot_mccwen.jpg) | ![](images/Module00_headshots/headshot_damki.jpg) | ![](images/Module00_headshots/headshot_imorse.jpg) | ![](images/Module00_headshots/headshot_dengkw.jpg) |
+|  **Crystal** | **Dana** | **Irene**| **Kaiwen** |
+| | | |
+| ![](images/Module00_headshots/headshot_meese.jpg) | ![](images/Module00_headshots/headshot_mkdohert.jpg) | ![](images/Module00_headshots/headshot_jrhemama.jpg) |
+| **Marisa** | **Matt** | **Rhema** |
 
-### (Helpers joining Tuesday/Wednesday)
-
-| ![](images/Module00_headshots/headshot_damki.jpg) | ![](images/Module00_headshots/headshot_mflick.jpg) | ![](images/Module00_headshots/headshot_meese.jpg) | ![](images/Module00_headshots/headshot_spanapak.jpg) |
-|:-:|:-:|:-:|:-:|
-| **Dana** | **Matthew** | **Marisa** | **Sai** |
-| ![](images/Module00_headshots/headshot_weishwu.jpg) |
-| **Weisheng** |
--->
 <br/>
 
 ## Workshop sponsors
@@ -216,8 +210,8 @@ It is important that you can see:
    research projects easier, simpler, and more reproducible.
 
  - By the end of the workshop, attendees will be able to
-   - Understand how to use a range of basic Bash commands including techniques 
-     to view and manipulate files from the command line. 
+   - Understand how to use a range of basic Bash commands including techniques
+     to view and manipulate files from the command line.
    - Combine Bash commands together to create custom scripts.
    - Understand basics of importing data into R and ways to clean/manipulate data
    - Visualize data as plots
@@ -226,7 +220,7 @@ It is important that you can see:
 
  - Our purpose is not to be exhaustive, there is a lot that we cannot cover in
    the allotted time, and we don't expect anyone to be an expert at the end of
-   the workshop. But we hope you will have a familiarity with key concepts, 
+   the workshop. But we hope you will have a familiarity with key concepts,
    tools, and techniques.
 
 
@@ -242,4 +236,3 @@ It is important that you can see:
 * Large sections of this workshop content have been adapted and extended from materials created by [Software Carpentry](https://software-carpentry.org/lessons/){target="_blank"}. These are open access materials distributed under the terms of the [Creative Commons Attribution license (CC BY 4.0)](http://creativecommons.org/licenses/by/4.0/){target="_blank"}, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
 
 * The workshop Code of Conduct has been adapted the [NumFocus Code of Conduct](https://numfocus.org/code-of-conduct){target="_blank"} which itself draws from from numerous sources, including the Geek Feminism wiki, created by the Ada Initiative and other volunteers, which is under a Creative Commons Zero license, the Contributor Covenant version 1.2.0, the Bokeh Code of Conduct, the SciPy Code of Conduct, the Carpentries Code of Conduct, and the NeurIPS Code of Conduct.
-
