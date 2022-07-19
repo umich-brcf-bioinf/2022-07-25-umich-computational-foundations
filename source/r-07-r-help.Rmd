@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM

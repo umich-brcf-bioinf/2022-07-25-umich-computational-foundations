@@ -26,36 +26,6 @@ pre {
 
 </style>
 
-<!--
----
-title: "R Basics continued - factors and data frames"
-teaching: 60
-exercises: 30
-questions:
-- "How do I get started with tabular data (e.g. spreadsheets) in R?"
-- "What are some best practices for reading data into R?"
-- "How do I save tabular data generated in R?"
-objectives:
-- "Explain the basic principle of tidy datasets"
-- "Be able to load a tabular dataset using base R functions"
-- "Be able to determine the structure of a data frame including its dimensions and the datatypes of variables"
-- "Be able to subset/retrieve values from a data frame"
-- "Understand how R may coerce data into different modes"
-- "Be able to change the mode of an object"
-- "Understand that R uses factors to store and manipulate categorical data"
-- "Be able to manipulate a factor, including subsetting and reordering"
-- "Be able to apply an arithmetic function to a data frame"
-- "Be able to coerce the class of an object (including variables in a data frame)"
-- "Be able to import data from Excel"
-- "Be able to save a data frame as a delimited file"
-keypoints:
-- "It is easy to import data into R from tabular formats including Excel. However, you still need to check that R has imported and interpreted your data correctly"
-- "There are best practices for organizing your data (keeping it tidy) and R is great for this"
-- "Base R has many useful functions for manipulating your data, but all of R's capabilities are greatly enhanced by software packages developed by the community"
-source: Rmd
----
--->
-
 ```{r chunk_options, include = FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("03-")
@@ -337,7 +307,7 @@ summary(gapminder$pop)
 
 In this case, we don't notice any values that might be out of the ordinary. For example, we know that there are countries with over a billion people, so seeing a maximum of 1,319,000,000 is not strange. At the same time, we know there are very small countries, so seeing a minimum of 60,000 seems reasonable too. What would be unreasonable would be a negative population, for example.
 
-# Bonus Material: Math and Sorting
+# Bonus material: Math and Sorting
 
 Here are a few operations that don't need much explanation, but which are good to know.
 

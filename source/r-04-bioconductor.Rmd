@@ -26,26 +26,6 @@ pre {
 
 </style>
 
-<!--
----
-title: Using packages from Bioconductor
-teaching: 10
-exercises: 3
-questions:
-- "How do I use packages from the Bioconductor repository?"
-objectives:
-- "Describe what the Bioconductor repository is and what it is used for"
-- "Describe how Bioconductor differs from CRAN"
-- "Search Bioconductor for relevent packages"
-- "Install a package from Bioconductor"
-keypoints:
-- "Bioconductor is an alternative package repository for bioinformatics packages."
-- "Installing packages from Bioconductor requires a new method, since it is not compatible with the `install.packages()` function used for CRAN."
-- "Check Bioconductor to see if there is a package relevent to your analysis before writing code yourself."
-source: Rmd
----
--->
-
 ```{r chunk_options, include=FALSE}
 source("../bin/chunk-options.R")
 
