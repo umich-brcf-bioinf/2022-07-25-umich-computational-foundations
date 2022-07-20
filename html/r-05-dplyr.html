@@ -340,6 +340,9 @@ multi-verse</a></li>
 <li><a href="#in-this-lesson" id="toc-in-this-lesson">In this
 lesson</a></li>
 </ul></li>
+<li><a href="#functions-for-data" id="toc-functions-for-data">Functions
+for data</a>
+<ul>
 <li><a href="#tibbles" id="toc-tibbles">Tibbles</a></li>
 <li><a href="#glimpse" id="toc-glimpse">Glimpse</a></li>
 <li><a href="#select" id="toc-select">Select</a></li>
@@ -349,10 +352,9 @@ lesson</a></li>
 <li><a href="#group-by-and-summarize"
 id="toc-group-by-and-summarize">Group by and summarize</a></li>
 <li><a href="#the-pivot-functions" id="toc-the-pivot-functions">The
-pivot functions</a>
-<ul>
-<li><a href="#resources" id="toc-resources">Resources</a></li>
+pivot functions</a></li>
 </ul></li>
+<li><a href="#resources" id="toc-resources">Resources</a></li>
 </ul>
 </div>
 
@@ -426,15 +428,19 @@ functions:</p>
 </ol>
 </div>
 </div>
-<div id="tibbles" class="section level1">
-<h1>Tibbles</h1>
+<div id="functions-for-data" class="section level1">
+<h1>Functions for data</h1>
+<p>To get started, let’s load the <code>tidyverse</code> package:</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<div id="tibbles" class="section level2">
+<h2>Tibbles</h2>
 <p>While the <code>dplyr</code> packages operate on data frames with
 aplomb, the <code>tidyverse</code> tends to use a tibble, which it
 describes as “a modern re-imagining of the data frame.” What are some of
 the benefits of a tibble over a data frame?</p>
 <ol style="list-style-type: decimal">
-<li>It never changes the input types. Remember
-<code>stringsAsFactors</code>? A tibble will never convert characters to
+<li>It never changes input types. Remember
+<code>stringsAsFactors</code>? A tibble never converts strings to
 factors.</li>
 <li>It never changes variable names. If you try to create a
 <code>data.frame</code> with column names beginning with numbers or
@@ -640,27 +646,27 @@ little too much information… So let’s permanently coerce
 <code>gapminder</code> as a tibble for the rest of the lessons.</p>
 <pre class="r"><code>gapminder = as_tibble(gapminder)</code></pre>
 </div>
-<div id="glimpse" class="section level1">
-<h1>Glimpse</h1>
+<div id="glimpse" class="section level2">
+<h2>Glimpse</h2>
 <p>Similar to <code>str()</code>, which is in base R,
 <code>glimpse()</code> is a <code>dplyr</code> function that (as the
 name suggests) gives a glimpse of the data frame.</p>
 <pre class="r"><code>glimpse(gapminder)</code></pre>
 <pre><code>Rows: 1,704
 Columns: 6
-$ country   &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanist…
-$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, 2002, 2007, 1952, 1957, 1962, 1967, 1972…
-$ pop       &lt;dbl&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12881816, 13867957, 16317921, 22227415, 25…
-$ continent &lt;chr&gt; &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Eur…
-$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.822, 41.674, 41.763, 42.129, 43.828, 55.2…
-$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, 978.0114, 852.3959, 649.3414, 635.3414, …</code></pre>
+$ country   &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afgh…
+$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, 2002, 2007, 1952, 1957, 1962, 1967,…
+$ pop       &lt;dbl&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12881816, 13867957, 16317921, 2222741…
+$ continent &lt;chr&gt; &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;, &quot;Asia&quot;,…
+$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.822, 41.674, 41.763, 42.129, 43.828,…
+$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, 978.0114, 852.3959, 649.3414, 635.3…</code></pre>
 <p>In the above output, we can already gather some information about
 <code>gapminder</code>, such as the number of rows and columns, column
 names, type of vector in the columns, and the first few entries of each
 column.</p>
 </div>
-<div id="select" class="section level1">
-<h1>Select</h1>
+<div id="select" class="section level2">
+<h2>Select</h2>
 <p>To select columns of a data frame, use <code>select()</code>. The
 first argument to this function is the data frame
 (<code>gapminder</code>), and the subsequent arguments are the columns
@@ -748,8 +754,8 @@ Solution
 </details>
 <p><br></p>
 </div>
-<div id="filter" class="section level1">
-<h1>Filter</h1>
+<div id="filter" class="section level2">
+<h2>Filter</h2>
 <p>To choose rows, use <code>filter()</code>:</p>
 <pre class="r"><code>filter(gapminder, country == &#39;Nigeria&#39;)</code></pre>
 <pre><code># A tibble: 12 × 6
@@ -861,8 +867,8 @@ Solution
 </details>
 <p><br></p>
 </div>
-<div id="pipes" class="section level1">
-<h1>Pipes</h1>
+<div id="pipes" class="section level2">
+<h2>Pipes</h2>
 <p>But what if you wanted to select and filter? We can do this with
 pipes (which we saw in the <code>bash</code> lessons). Pipes, are a
 fairly recent addition to R. Pipes let you take the output of one
@@ -981,8 +987,8 @@ Solution
 </details>
 <p><br></p>
 </div>
-<div id="mutate" class="section level1">
-<h1>Mutate</h1>
+<div id="mutate" class="section level2">
+<h2>Mutate</h2>
 <p>Frequently you’ll want to create new columns based on the values in
 existing columns, for example to do unit conversions or find the ratio
 of values in two columns. For this we’ll use the <code>dplyr</code>
@@ -1040,8 +1046,8 @@ Solution
 </details>
 <p><br></p>
 </div>
-<div id="group-by-and-summarize" class="section level1">
-<h1>Group by and summarize</h1>
+<div id="group-by-and-summarize" class="section level2">
+<h2>Group by and summarize</h2>
 <p>Many data analysis tasks can be approached using the
 “split-apply-combine” paradigm: split the data into groups, apply some
 analysis to each group, and then combine the results. <code>dplyr</code>
@@ -1148,8 +1154,8 @@ easiest way to ignore <code>NA</code> (the missing data) is to use
 # … with 132 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
-<div id="the-pivot-functions" class="section level1">
-<h1>The pivot functions</h1>
+<div id="the-pivot-functions" class="section level2">
+<h2>The pivot functions</h2>
 <p>It can sometimes be useful to transform the “long” tidy format, into
 the wide format. This transformation can be done with the
 <code>pivot_wider()</code> function provided by the <code>tidyr</code>
@@ -1202,8 +1208,10 @@ the reshaping:</p>
 10 Afghanistan 1997     41.8
 # … with 1,694 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
-<div id="resources" class="section level3">
-<h3>Resources</h3>
+</div>
+</div>
+<div id="resources" class="section level1">
+<h1>Resources</h1>
 <ul>
 <li><a
 href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">Handy
@@ -1212,7 +1220,6 @@ dplyr cheatsheet</a></li>
 this lesson was copied or adapted from Jeff Hollister’s
 materials</a></li>
 </ul>
-</div>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />

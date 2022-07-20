@@ -40,154 +40,176 @@ gapminder <- as_tibble(gapminder) %>% mutate(total_gdp = pop * gdpPercap)
 
 # Overview
 
-In this lesson we will work primarily with the `ggplot2` package to learn how to generate various plots and customizations.
+In this lesson we will work with `ggplot2` and its "grammar of graphics" to create a variety of plots using the `gapminder` data we saw in the last lesson.
 
-# Getting started
+# Grammar of graphics
 
-We start by loading the package **`ggplot2`**.
+When people talk about `ggplot2` you may hear them use the phrase "grammar of graphics," which is a conception of statistical graphics developed by Leland Wilkinson. The main components of the grammar (in bold) are defined as follows in the book [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org).
+
+> All plots are composed of the **data**, the information to visualize, and a **mapping**, the description of the data's variables are mapped to aesthetic attributes. There are five mapping components:
+>
+> - A **layer** is a collection of geometric elements and statistical transformations. Geometric elements, **geom**s for short, represent what you actually see in the plot: points, lines, polygons, etc. Statistical transformations, **stat**s for short, summarise the data: for example, binning and counting observations to create a histogram, or fitting a linear model.
+> - **Scale**s map values in the data space to values in the aesthetic space. This includes the use of colour, shape or size. Scales also draw the legend and axes, which make it possible to read the original data values from the plot (an inverse mapping).
+> - A **coord**, or coordinate system, describes how data coordinates are mapped to the plane of the graphic. It also provides axes and gridlines to help read the graph. We normally use the Cartesian coordinate system, but a number of others are available, including polar coordinates and map projections.
+> - A **facet** specifies how to break up and display subsets of data as small multiples. This is also known as conditioning or latticing/trellising.
+> - A **theme** controls the finer points of display, like the font size and background colour. While the defaults in ggplot2 have been chosen with care, you may need to consult other references to create an attractive plot.
+
+Remembering all of this isn't necessary for generating plots quickly with `ggplot2`, so don't worry if these concepts aren't completely clear at first. As you work with `ggplot2` you will start to get a sense for how these things fit together and what function calls to use.
+
+# Scatter plots
+
+We first load the `ggplot2` library:
 
 ```{r load-ggplot2, message=FALSE, purl=FALSE}
 library(ggplot2)
 ```
-## Plotting with **`ggplot2`**
 
-**`ggplot2`** is a plotting package that makes it simple to create complex plots from data in a data frame. It provides a more programmatic interface for specifying what variables to plot, how they are displayed, and general visual properties. Therefore, we only need minimal changes if the underlying data change or if we decide to change from a bar plot to a scatter plot. This helps in creating publication quality plots with minimal amounts of adjustments and tweaking.
-
-**`ggplot2`** functions like data in the 'long' format, i.e., a column for every dimension, and a row for every observation. Well-structured data will save you lots of time when making figures with **`ggplot2`**
-
-ggplot graphics are built step by step by adding new elements. Adding layers in this fashion allows for extensive flexibility and customization of plots.
-
-To build a ggplot, we will use the following basic template that can be used for different types of plots:
+The plots you generate with `ggplot2` will usually conform to the template:
 
 ```{r, eval=FALSE}
-ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  <GEOM_FUNCTION>()
+ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +
+        <GEOM_FUNCTION>() +
+        <COORD_FUNCTION>() +
+        <SCALE_FUNCTION>() +
+        <THEME_FUNCTION>()
 ```
 
-- use the `ggplot()` function and bind the plot to a specific data frame using the
-      `data` argument
+We may not always use coordinate, scale, and theme functions, but at minimum we **must** specify the data, mapping, and geometry functions. `ggplot2` functions need data in the 'long' format, i.e., a column for every dimension, and a row for every observation. Well-structured data will save you lots of time when making figures with `ggplot2`. The `gapminder` data that we have been using is already in the format best-suited for `ggplot2`, but keep in mind you might need to use the `dplyr` functions we learned in the last lesson to get to this form for other data you may encounter.
 
-```{r, eval=FALSE, purl=FALSE}
+ggplots can be built iteratively, which is great for understanding what each addition does to the resulting plot.
+
+1. Use the `ggplot()` function and bind the plot to the `gapminder` data frame with the `data` argument:
+
+```{r ggplot_1, purl=FALSE}
 ggplot(data = gapminder)
 ```
 
-- define a mapping (using the aesthetic (`aes`) function), by selecting the variables to be plotted and specifying how to present them in the graph, e.g. as x/y positions or characteristics such as size, shape, color, etc.
+This plot is empty because we told it what data to use, but neither the mappings nor geometries.
 
-```{r, eval=FALSE, purl=FALSE}
+2. Let's define a mapping (using the aesthetic (`aes`) function), by selecting the variables to be plotted and specifying how to present them in the graph. First we'll specify x/y axes, but later we will see how to use size, shape, color, etc.
+
+```{r ggplot_2, purl=FALSE}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
 ```
 
-- add 'geoms' – graphical representations of the data in the plot (points, lines, bars). **`ggplot2`** offers many different geoms; we will use some common ones today, including:
+This is a little better in that we at least have axes, but there is still no data on the plot because we didn't specify a geometry.
+
+3. Now let's add a 'geom' – graphical representation of the data in the plot (points, lines, bars). `ggplot2` offers many different geoms; we will use some common ones today, including:
     * `geom_point()` for scatter plots, dot plots, etc.
     * `geom_line()` for trend lines, time series, etc.
     * `geom_barplot()` for, well, boxplots!
     * `geom_boxplot()` distributions.
 
-To add a geom to the plot use the `+` operator. Because we have two continuous variables, let's use `geom_point()` first:
+To add a geom to the plot use the `+` operator (this is the `ggplot` version of the pipe from the previous lesson). Because we have two continuous variables, let's use `geom_point()` first:
 
 ```{r first-ggplot, purl=FALSE}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
+```
+
+The `+` in the `ggplot2` package is particularly useful because it allows you to modify existing `ggplot` objects. Now we might want to change some things like the axis labels and add a title to the plot.
+
+4. We can modify plot titles, axis labels, and their sizes, colors, etc. using theme functions. Let's give the axis labels better names, and give the plot a title using the `labs()` function.
+
+```{r first-ggplot-labels, purl=FALSE}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
-    geom_point()
-```
-
-The `+` in the **`ggplot2`** package is particularly useful because it allows you to modify existing `ggplot` objects. This means you can easily set up plot templates and conveniently explore different types of plots, so the above plot can also be generated with code like this:
-
-```{r, first-ggplot-with-plus, eval=FALSE, purl=FALSE}
-# Assign plot to a variable
-gdp_exp_plot <- ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
-
-# Draw the plot
-gdp_exp_plot +
-    geom_point()
-```
-
-**Notes**
-
-- Anything you put in the `ggplot()` function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the x- and y-axis mapping you set up in `aes()`.
-- You can also specify mappings for a given geom independently of the mappings defined globally in the `ggplot()` function.
-- The `+` sign used to add new layers must be placed at the end of the line containing the *previous* layer. If, instead, the `+` sign is added at the beginning of the line containing the new layer, **`ggplot2`** will not add the new layer and will return an error message.
-
-```{r, ggplot-with-plus-position, eval=FALSE, purl=FALSE}
-# This is the correct syntax for adding layers
-gdp_exp_plot +
-  geom_point()
-
-# This will not add the new layer and will return an error message
-gdp_exp_plot + geom_point()
-```
-
-## Building your plots iteratively
-
-Building plots with **`ggplot2`** is typically an iterative process. We start by defining the dataset we'll use, lay out the axes, and choose a geom:
-
-```{r create-ggplot-object, purl=FALSE}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
-  geom_point()
-```
-
-Then, we start modifying this plot to extract more information from it. For instance, we can add transparency (`alpha`) to avoid overplotting:
-
-```{r adding-transparency, purl=FALSE}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
-    geom_point(alpha = 0.5)
-```
-
-We can also add colors for all the points:
-
-```{r adding-colors, purl=FALSE}
-
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
-  geom_point(alpha = 0.5, color = "blue")
-```
-
-Or to color each continent in the plot differently, you could use a vector as an input to the argument **color**. **`ggplot2`** will provide a different color corresponding to different values in the vector. Here is an example where we color with **`continent`**:
-
-```{r color-by-continent-1, purl=FALSE}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
-  geom_point(alpha = 0.5)
-```
-
-Notice that we can change the geom layer and colors will be still determined by **`continent`**
-
-```{r color-by-continent-2, purl=FALSE}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
-  geom_jitter(alpha = 0.5)
-```
-
-To make our plot more readable, we can add axis labels:
-
-```{r add-axis-labels, purl=FALSE}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
-  geom_point(alpha = 0.5) +
-  labs(x = "GDP per Capita",
-       y = "Life Expectancy")
-```
-
-> ## Challenge
->
-> Use what you just learned to create a scatter plot of population over life expectancy with the continents showing in different colors. Make sure to give your plot relevant axis labels.
-
-<details>
-<summary>Solution</summary>
-```{r scatter-challenge, purl=FALSE}
-ggplot(data = gapminder, aes(x = pop, y = lifeExp, color = continent)) +
     geom_point() +
-    labs(x = "Population",
-         y = "Life Expectancy")
+    labs(title = 'GDP per Capita vs Life Expectancy', x = 'GDP per Capita', y = 'Life Expectancy')
 ```
-</details>
-<br>
 
+Now we have clearer labels and a good summary title. But what if we're not keen on that gray background? We can use a theme function to change the look and feel of the graph. The [Themes section](https://ggplot2-book.org/polishing.html) of the ggplot2 book provides a good overview of theming options.
 
-## Faceting
+5. Let's change the theme to something lighter:
 
-**`ggplot2`** has a special technique called *faceting* that allows the user to split one plot into multiple plots based on a factor included in the dataset. We will use it to split our plot into five panels, one for each continent.
+```{r first-ggplot-theme, purl=FALSE}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+    geom_point() +
+    labs(title = 'GDP per Capita vs Life Expectancy', x = 'GDP per Capita', y = 'Life Expectancy') +
+    theme_bw()
+```
+
+## Storing plots as objects
+
+Base graphics in R typically don't allow plots to be saved and modified as objects, but you can with ggplots. This can be helpful for storing a base version of a plot to tinker with more easily without having to write some of the same code over and over again. For example:
+
+```{r save-ggplot}
+base_plot = ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
+```
+
+And from here we can try some different things out, like changing the color of all the points:
+
+```{r blue-ggplot}
+base_plot + geom_point(color = 'blue')
+```
+
+Or we can make the points a little transparent:
+
+```{r transparent-ggplot}
+base_plot + geom_point(alpha = 0.5)
+```
+
+> ## Tip
+>
+> - Anything you put in the `ggplot()` function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the x- and y-axis mapping you set up in `aes()`.
+> - You can also specify mappings for a given geom independently of the mappings defined globally in the `ggplot()` function.
+> - The `+` sign used to add new layers must be placed at the end of the line containing the *previous* layer.
+
+## Exploring other aesthetics
+
+### Color
+
+To color each continent in the plot differently, you can specify that of the data to use as the `color` in the aesthetic (`aes()`) funciton.
+
+```{r color-by-continent1, purl=FALSE}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
+    geom_point() +
+    labs(title = 'GDP per Capita vs Life Expectancy', x = 'GDP per Capita', y = 'Life Expectancy') +
+    theme_bw()
+```
+
+You can also change the colors that are used by specifying a named palette, or by manually defining the colors. [This page](https://r-graph-gallery.com/38-rcolorbrewers-palettes) shows some of the named palettes which are available, and `?scale_colour_brewer` also shows the names of the palettes.
+
+```{r color-by-continent2, purl=FALSE}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
+    geom_point() +
+    labs(title = 'GDP per Capita vs Life Expectancy', x = 'GDP per Capita', y = 'Life Expectancy') +
+    scale_color_brewer(palette = 'Set3') +
+    theme_bw()
+```
+
+### Shape
+
+You can also alter the shape of the points by specifying `shape` in the `aes()` function:
+
+```{r shape-by-continent, purl=FALSE}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, shape = continent)) +
+    geom_point() +
+    labs(title = 'GDP per Capita vs Life Expectancy', x = 'GDP per Capita', y = 'Life Expectancy') +
+    theme_bw()
+```
+
+### Size
+
+You can alter the size of points by specifying `size` in the `aes()` function while also using the continents as a `color`. Let's save this plot as an object to use later in this lesson.
+
+```{r size-by-pop, purl=FALSE}
+gdp_life_plot <- ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
+    geom_point(alpha = 0.5) +
+    labs(title = 'GDP per Capita vs Life Expectancy (Size by Population)', x = 'GDP per Capita', y = 'Life Expectancy') +
+    theme_bw()
+# When saving a plot as an object, RStudio won't automatically display it
+gdp_life_plot
+```
+
+### Faceting
+
+`ggplot2` has a special technique called *faceting* that allows us to split one plot into multiple plots based on a factor in the data. Let's use it to split our plot into five panels, one for each continent.
 
 ```{r first-facet, purl=FALSE}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
     geom_point() +
-    labs(x = "GDP per Capita",
-         y = "Life Expectancy") +
-    facet_grid(. ~ continent)
+    facet_grid(. ~ continent) +
+    labs(title = 'GDP per Capita vs Life Expectancy', x = 'GDP per Capita', y = 'Life Expectancy') +
+    theme_bw()
 ```
 
 We can also experiment with stacking the facets vertically, rather than horizontally. The `facet_grid` geometry allows you to explicitly specify how you want your plots to be arranged via formula notation (`rows ~ columns`; a `.` can be used as a placeholder that indicates only one row or column).
@@ -195,99 +217,215 @@ We can also experiment with stacking the facets vertically, rather than horizont
 ```{r second-facet, purl=FALSE}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
     geom_point() +
-    labs(x = "GDP per Capita",
-         y = "Life Expectancy") +
-    facet_grid(continent ~ .)
+    facet_grid(continent ~ .) +
+    labs(title = 'GDP per Capita vs Life Expectancy', x = 'GDP per Capita', y = 'Life Expectancy') +
+    theme_bw()
 ```
 
-Usually plots with white background look more readable when printed.  We can set the background to white using the function `theme_bw()`. Additionally, you can remove the grid:
+# Line plots
 
-```{r facet-plot-white-bg, purl=FALSE}
+We've explored a lot of options with the `geom_point()` geometry, but we should expand our horizons to other geometries. Let's first create a subset of the `gapminder` data limited only to Poland and plot the life expectancy over all the years for which we have data as a line plot.
+
+> ## Exercise
+>
+> Use the `filter()` function to select only the Poland data from the `gapminder` data, and save it as as an object named "poland".
+
+<details>
+<summary>Solution</summary>
+```{r subset-challenge, purl=FALSE}
+poland = gapminder %>% filter(country == 'Poland')
+poland
+```
+</details>
+<br>
+
+> ## Exercise
+>
+> For the `poland` subset of the `gapminder` data, plot the life expectancy as a function of the year. Make sure to label the axes and give the plot an appropriate title. Make sure to save your plot as an object called "poland_plot". Hint: Try the `geom_line()` geometry.
+
+<details>
+<summary>Solution</summary>
+```{r lineplot-challenge, purl=FALSE}
+poland_plot <- ggplot(data = poland, aes(x = year, y = lifeExp)) +
+    geom_line() +
+    labs(x = 'Year', y = 'Life Expectancy', title = 'Polish Life Expectancy Over Time')
+poland_plot
+```
+</details>
+<br>
+
+This is excellent! Now let's consider plotting a similar line graph of life expectancy across time for **all countries** on the **same axes**. Moreover, let's color the lines by their continent. Perhaps we can even take as a guide our scatterplot from above:
+
+```{r eval = FALSE}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
-  geom_point() +
-  labs(x = "GDP per Capita",
-       y = "Life Expectancy") +
-  facet_grid(continent ~ .) +
-  theme_bw() +
-  theme(panel.grid = element_blank())
+    geom_point() +
+    labs(title = 'GDP per Capita vs Life Expectancy', x = 'GDP per Capita', y = 'Life Expectancy') +
+    theme_bw()
 ```
 
-## Line Plots
-
-Let's try to plot the life expectancy of each country over each year.
+We might just replace `gdpPercap` with `lifeExp` and `geom_point()` with `geom_line()` and hopefully get what we want. Let's give it a shot:
 
 ```{r first_line_plot, purl=FALSE}
 ggplot(data = gapminder, aes(x = year, y = lifeExp, color = continent)) +
-    geom_line()
+    geom_line() +
+    labs(title = 'Life Expectancy Over Time by Country', x = 'Year', y = 'Life Expectancy') +
+    theme_bw()
 ```
 
-This doesn't look right at all. This is giving us a line per continent, but we really want the lines to be per country, but colored by the continent... there is a parameter of `aes()` called `group`.
+This doesn't really look like what we expected. I expected a line for each country, but I can't really explain how ggplot decided to create the lines. There is a parameter of `aes()` called `group` which can help us. It will tell ggplot to first group the data by a column of the data, in this we probably want `country`. What happens if we try that? (Let's also save this plot as an object to use later.)
 
 ```{r second_line_plot, purl=FALSE}
-ggplot(data = gapminder, aes(x = year, y = lifeExp, color = continent, group = country)) +
-    geom_line()
+life_over_time_plot <- ggplot(data = gapminder, aes(x = year, y = lifeExp, color = continent, group = country)) +
+    geom_line() +
+    labs(title = 'Life Expectancy Over Time by Country', x = 'Year', y = 'Life Expectancy') +
+    theme_bw()
+life_over_time_plot
 ```
 
-## Bar Plots
+Voila, we've got ourselves a spaghetti plot.
 
-We can create barplots using the `geom_bar` geom. Let's make a barplot showing the number of data points per continent.
+# Saving plots to file
 
-```{r barplot, purl=FALSE}
-ggplot(data = gapminder, aes(x = continent)) + geom_bar()
+Let's take a brief pause from experimenting with plots and learn how to save plots as image files. We should have three plots that we've saved as objects: `gdp_life_plot`, `poland_plot`, and `life_over_time_plot`. Let's save these plots as files using the `ggsave()` function.
+
+The `ggsave()` function is an easy way to specify which plots to save, at what location, at what size and resolution, and in what format. Let's first have a look at the help file to figure out which parameters we should pay attention to.
+
+```{r eval = FALSE}
+?ggsave
 ```
 
-Notice, this looks a lot like our plot way back in episode 2!
+The `filename` parameter can determine what format to write the file in based on the extension (e.g. `.tiff`, `.png`, `.pdf`, or `.jpeg`). Next the `height` and `width` can be specified in any number of `units` to get the exact size figure you prefer. Finally, the `dpi` parameter specifies the resolution in "dots per inch", and this parameter can ensure that the plots you output are sufficiently high-quality to submit as part of a publication to a journal. Typically 300dpi is sufficient. With this in mind, let's save the `gdp_life_plot`:
 
-## Box Plots
+```{r save-plot, eval = FALSE}
+ggsave(filename = 'gdp_life_plot.png', plot = gdp_life_plot, width = 6, height = 6, units = 'in', dpi = 300)
+```
 
-We can create boxplots using the `geom_boxplot` geom. Let's look at the boxplot of population split per continent.
+# Bar plots
+
+What if we wanted to plot the global total GDP per year as a bar plot, but separated by continent? Let's first take a look at the help function for `geom_bar()`:
+
+~~~
+?geom_bar
+~~~
+
+Looking through the description:
+
+- `geom_bar()` makes the height of the bar proportional to the number of cases in each group.
+- If you want the heights of the bars to represent values in the data, use `geom_col()` instead.
+
+Since we want the height of the bars to represent the values of the `total_gdp` column, we should be using `geom_col()`, a relative of `geom_bar()`. To make this graph, it's clear we want the `year` on the x-axis, the `total_gdp` on the y-axis, and if we want to separate the continents apart in the graph, we will use a new aesthetic parameter called `fill` and assign it `continent`.
+
+```{r barplot1, purl=FALSE}
+ggplot(data = gapminder, aes(x = year, y = total_gdp, fill = continent)) + geom_col()
+```
+
+This is a good start, and from previous examples we know how we might alter the x and y axis labels, but how can we edit the legend title? This is a common task when creating publication figures because the legend title will inherit the name of the column, which is usually some shorthand. We can use the same `labs()` function we used before, and specify a value for `fill`, to go with the `fill` parameter in `aes()` above. Let's save this plot as "total_gdp_plot".
+
+```{r barplot2, purl=FALSE}
+total_gdp_plot = ggplot(data = gapminder, aes(x = year, y = total_gdp, fill = continent)) +
+    geom_col() +
+    labs(title = 'Global GDP Over Time (by continent)', x = 'Year', y = 'Total GDP', fill = 'Continent')
+total_gdp_plot
+```
+
+# Box plots
+
+What if we wanted a plot to look at the distribution of populations of countries grouped by continents over the years? Let's start by building this plot iteratively.
 
 ```{r boxplot, purl = FALSE}
 ggplot(data = gapminder, aes(x = continent, y = pop)) + geom_boxplot()
 ```
 
-This doesn't look great because the populations of countries have such a large range. We an fix this by changing the scale of the y-axis to a logarithmic scale using the `scale_y_log10()` function. We may also want to change the axis labels to make it clear to the reader that this was done:
+This is a good start, but because of the wide range of populations, we're having a problem seeing the distribution of values at the lower end. This is a perfect opportunity to change the scale of the y-axis to a logarithmic scale using the `scale_y_log10()` function.
 
-```{r boxplot_log, purl = FALSE}
+```{r boxplot2, purl = FALSE}
+ggplot(data = gapminder, aes(x = continent, y = pop)) + geom_boxplot() + scale_y_log10()
+```
+
+This is better, but we still have all the years lumped into each continent bar. We could split out the years as facets. We saw an example of that with `facet_grid()` above. Since we're trying to compare the distributions of populations across years at a glance, it would probably best to facet the years horizontally.
+
+```{r boxplot3, purl = FALSE}
 ggplot(data = gapminder, aes(x = continent, y = pop)) +
     geom_boxplot() +
     scale_y_log10() +
-    labs(
-        x = 'Continent',
-        y = 'Population (log10 scale)'
-    )
+    facet_grid(. ~ year)
 ```
 
-> ## Challenge
->
-> How can we add the individual data points to the boxplot?
+This is great, we've come a long way, but maybe we'd actually like the x-axis to be by year and the facets to be by continent. That would feel like a better display of the data.
 
-<details>
-<summary>Solution</summary>
-```{r boxplot_challenge, purl=FALSE}
-ggplot(data = gapminder, aes(x = continent, y = pop)) +
+```{r boxplot4, purl = FALSE}
+ggplot(data = gapminder, aes(x = year, y = pop)) +
     geom_boxplot() +
     scale_y_log10() +
-    geom_jitter() +
-    labs(
-        x = 'Continent',
-        y = 'Population (log10 scale)'
-    )
+    facet_grid(. ~ continent)
 ```
-</details>
-<br>
 
+That's an interesting warning. Because year is considered a numeric, we're not really getting what we'd like. ggplot is helpfully suggesting adding `group = year`.
 
-## **`ggplot2`** themes
+```{r boxplot5, purl = FALSE}
+ggplot(data = gapminder, aes(x = year, y = pop, group = year)) +
+    geom_boxplot() +
+    scale_y_log10() +
+    facet_grid(. ~ continent)
+```
 
-In addition to `theme_bw()`, which changes the plot background to white, **`ggplot2`** comes with several other themes which can be useful to quickly change the look of your visualization. The complete list of themes is available at <https://ggplot2.tidyverse.org/reference/ggtheme.html>. `theme_minimal()` and `theme_light()` are popular, and `theme_void()` can be useful as a starting point to create a new hand-crafted theme.
+That feels like closer to what we intended. It also has the benefit of being beautiful in a way.
 
-The [ggthemes](https://jrnold.github.io/ggthemes/reference/index.html) package provides a wide variety of options (including an Excel 2003 theme). The [**`ggplot2`** extensions website](https://exts.ggplot2.tidyverse.org/) provides a list of packages that extend the capabilities of **`ggplot2`**, including additional themes.
+## Rotating axis labels
 
-> ## Challenge
->
-> With all of this information in hand, please take another five minutes to either improve one of the plots generated in this exercise or create a beautiful graph of your own. Use the RStudio [**`ggplot2`** cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) for inspiration. Here are some ideas:
->
-> * See if you can change the size or shape of the plotting symbol.
-> * Can you find a way to change the name of the legend? What about its labels?
-> * Try using a different color palette (see http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/).
+You will very likely discover in the course of making plots that the axis labels may collide with one another, and that rotating the labels would make for a better plot. Let's modify the plot we just made to rotate the years by 45 degrees. But where to start? Typically the answer for ggplot questions is to search the internet and look at example code. Let's do just that. Let's search for "how to rotate axis labels in ggplot".
+
+...
+
+It looks like a possible solution is to add
+
+```{r, eval = FALSE}
+theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+```
+
+Let's give it a shot:
+
+```{r boxplot6, purl = FALSE}
+ggplot(data = gapminder, aes(x = year, y = pop, group = year)) +
+    geom_boxplot() +
+    scale_y_log10() +
+    facet_grid(. ~ continent) +
+    theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+```
+
+Perfect!
+
+# Summary
+
+In this lesson we've introduced the basic concepts underpinnning ggplot2:
+
+- Data
+- Mappings
+- Layers
+- Geoms
+- Stats
+- Scales
+- Coords
+- Facets
+- Themes
+
+We've introduced a number of specific geometries:
+
+- `geom_point()`
+- `geom_line()`
+- `geom_bar()` and `geom_col()`
+- `geom_boxplot()`
+
+And we explored various customizations:
+
+- Color palettes
+- Plot, axis, and legend titles
+- Axis label rotation
+
+And we explored how to save our plots in different formats and resolutions to ensure publication quality graphics.
+
+# Resources
+
+* [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/introduction.html) is a definitive book of the Grammar of Graphics and `ggplot2` implementation.
+* [ggplot2 official page](https://ggplot2.tidyverse.org/) is the official landing page describing ggplot2 as part of the tidyverse.
+* [patchwork](https://patchwork.data-imaginist.com/), a package to easily add plots together!

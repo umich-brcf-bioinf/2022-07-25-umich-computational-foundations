@@ -354,9 +354,6 @@ id="toc-saving-your-data-frame-to-a-file">Saving your data frame to a
 file</a></li>
 </ul></li>
 <li><a href="#data-tips" id="toc-data-tips">Data tips</a></li>
-<li><a href="#bonus-material-math-and-sorting"
-id="toc-bonus-material-math-and-sorting">Bonus Material: Math and
-Sorting</a></li>
 </ul>
 </div>
 
@@ -373,35 +370,6 @@ pre {
 }
 
 </style>
-<!--
----
-title: "R Basics continued - factors and data frames"
-teaching: 60
-exercises: 30
-questions:
-- "How do I get started with tabular data (e.g. spreadsheets) in R?"
-- "What are some best practices for reading data into R?"
-- "How do I save tabular data generated in R?"
-objectives:
-- "Explain the basic principle of tidy datasets"
-- "Be able to load a tabular dataset using base R functions"
-- "Be able to determine the structure of a data frame including its dimensions and the datatypes of variables"
-- "Be able to subset/retrieve values from a data frame"
-- "Understand how R may coerce data into different modes"
-- "Be able to change the mode of an object"
-- "Understand that R uses factors to store and manipulate categorical data"
-- "Be able to manipulate a factor, including subsetting and reordering"
-- "Be able to apply an arithmetic function to a data frame"
-- "Be able to coerce the class of an object (including variables in a data frame)"
-- "Be able to import data from Excel"
-- "Be able to save a data frame as a delimited file"
-keypoints:
-- "It is easy to import data into R from tabular formats including Excel. However, you still need to check that R has imported and interpreted your data correctly"
-- "There are best practices for organizing your data (keeping it tidy) and R is great for this"
-- "Base R has many useful functions for manipulating your data, but all of R's capabilities are greatly enhanced by software packages developed by the community"
-source: Rmd
----
--->
 <div id="objectives" class="section level1">
 <h1>Objectives</h1>
 <p>In this lesson we will introduce two more data types: factors and
@@ -772,8 +740,8 @@ reordered_continents &lt;- factor(gapminder$continent, levels = names(sort(table
 
 # And let&#39;s quickly look at the result using the head() function
 head(reordered_continents, 20)</code></pre>
-<pre><code> [1] Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Europe Europe Europe Europe
-[17] Europe Europe Europe Europe
+<pre><code> [1] Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Europe Europe Europe
+[16] Europe Europe Europe Europe Europe
 Levels: Oceania Americas Europe Asia Africa</code></pre>
 <p>Now we see our plot has be reordered:</p>
 <pre class="r"><code>plot(reordered_continents)</code></pre>
@@ -830,57 +798,6 @@ billion people, so seeing a maximum of 1,319,000,000 is not strange. At
 the same time, we know there are very small countries, so seeing a
 minimum of 60,000 seems reasonable too. What would be unreasonable would
 be a negative population, for example.</p>
-</div>
-<div id="bonus-material-math-and-sorting" class="section level1">
-<h1>Bonus Material: Math and Sorting</h1>
-<p>Here are a few operations that don’t need much explanation, but which
-are good to know.</p>
-<p>There are lots of arithmetic functions you may want to apply to your
-data frame, covering those would be a course in itself (there is some
-starting material <a
-href="https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth/">here</a>).
-Our lessons will cover some additional summary statistical functions in
-a subsequent lesson, but overall we will focus on data cleaning and
-visualization.</p>
-<p>You can use functions like <code>mean()</code>, <code>min()</code>,
-<code>max()</code> on an individual column. Let’s look at the “year” or
-filtered depth. This value shows the number of filtered reads that
-support each of the reported gapminder.</p>
-<pre class="r"><code>max(gapminder$year)</code></pre>
-<pre><code>[1] 2007</code></pre>
-<p>You can sort a data frame using the <code>order()</code>
-function:</p>
-<pre class="r"><code>sorted_by_year &lt;- gapminder[order(gapminder$year), ]
-head(sorted_by_year)</code></pre>
-<pre><code>       country year      pop continent lifeExp  gdpPercap
-1  Afghanistan 1952  8425333      Asia  28.801   779.4453
-13     Albania 1952  1282697    Europe  55.230  1601.0561
-25     Algeria 1952  9279525    Africa  43.077  2449.0082
-37      Angola 1952  4232095    Africa  30.015  3520.6103
-49   Argentina 1952 17876956  Americas  62.485  5911.3151
-61   Australia 1952  8691212   Oceania  69.120 10039.5956</code></pre>
-<blockquote>
-<h2 id="exercise">Exercise</h2>
-<p>The <code>order()</code> function lists values in increasing order by
-default. Look at the documentation for this function and change
-<code>sorted_by_year</code> to start with the latest year at the
-top.</p>
-</blockquote>
-<details>
-<summary>
-Solution
-</summary>
-<pre class="r"><code>sorted_by_year &lt;- gapminder[order(gapminder$year, decreasing = TRUE), ]
-head(sorted_by_year)</code></pre>
-<pre><code>       country year      pop continent lifeExp  gdpPercap
-12 Afghanistan 2007 31889923      Asia  43.828   974.5803
-24     Albania 2007  3600523    Europe  76.423  5937.0295
-36     Algeria 2007 33333216    Africa  72.301  6223.3675
-48      Angola 2007 12420476    Africa  42.731  4797.2313
-60   Argentina 2007 40301927  Americas  75.320 12779.3796
-72   Australia 2007 20434176   Oceania  81.235 34435.3674</code></pre>
-</details>
-<p><br></p>
 </div>
 
 

@@ -306,37 +306,3 @@ summary(gapminder$pop)
 ```
 
 In this case, we don't notice any values that might be out of the ordinary. For example, we know that there are countries with over a billion people, so seeing a maximum of 1,319,000,000 is not strange. At the same time, we know there are very small countries, so seeing a minimum of 60,000 seems reasonable too. What would be unreasonable would be a negative population, for example.
-
-# Bonus material: Math and Sorting
-
-Here are a few operations that don't need much explanation, but which are good to know.
-
-There are lots of arithmetic functions you may want to apply to your data frame, covering those would be a course in itself (there is some starting material [here](https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth/)). Our lessons will cover some additional summary statistical functions in a subsequent lesson, but overall we will focus on data cleaning and visualization.
-
-You can use functions like `mean()`, `min()`, `max()` on an individual column. Let's look at the "year" or filtered depth. This value shows the number of filtered reads that support each of the reported gapminder.
-
-```{r, purl = FALSE}
-max(gapminder$year)
-```
-
-You can sort a data frame using the `order()` function:
-
-```{r, purl = FALSE}
-sorted_by_year <- gapminder[order(gapminder$year), ]
-head(sorted_by_year)
-```
-
-
-> ## Exercise
->
-> The `order()` function lists values in increasing order by default. Look at the documentation for this function and change `sorted_by_year` to start with the latest year at the top.
-
-<details>
-<summary>Solution</summary>
-
-```{r, purl = FALSE}
-sorted_by_year <- gapminder[order(gapminder$year, decreasing = TRUE), ]
-head(sorted_by_year)
-```
-</details>
-<br>
