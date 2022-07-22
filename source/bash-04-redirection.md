@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -177,7 +177,7 @@ The prompt should sit there a little bit, and then it should look like nothing h
 
 We can check the number of lines in our new file using a command called `wc`. `wc` stands for **word count**. This command counts the number of words, lines, and characters in a file. The FASTQ file may change over time, so given the potential for updates, make sure your file matches your instructor's output.
 
-As of Sept. 2020, wc gives the following output:  
+As of Sept. 2020, wc gives the following output:
 
 
 ~~~
@@ -412,7 +412,7 @@ $ echo foo is $fooEFG      # doesn't work
 foo is
 ~~~
 
-The interpreter is trying to expand a variable named `fooEFG`, which (probably) doesn't exist. We can avoid this problem by enclosing the variable name in braces (`{` and `}`, sometimes called "squiggle braces"). 
+The interpreter is trying to expand a variable named `fooEFG`, which (probably) doesn't exist. We can avoid this problem by enclosing the variable name in braces (`{` and `}`, sometimes called "squiggle braces").
 
 > Note: `bash` treats the `#` character as a comment character. Any text on a line after a `#` is ignored by bash when evaluating the text as code.
 

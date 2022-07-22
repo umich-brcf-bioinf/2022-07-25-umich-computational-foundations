@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -515,10 +515,10 @@ This will delete not only the directory, but all files within the directory. If 
 
 Starting in the `CF_Shell/untrimmed_fastq/` directory, do the following:
 
-1. Make sure that you have deleted your backup directory and all files it contains.  
-2. Create a backup of each of your FASTQ files using `cp`. (Note: You'll need to do this individually for each of the two FASTQ files. We haven't learned yet how to do this with a wildcard.)  
-3. Create a new backup directory, then use a wildcard to move all of your backup files there.  
-4. Change the permissions on all of your backup files to be write-protected.  
+1. Make sure that you have deleted your backup directory and all files it contains.
+2. Create a backup of each of your FASTQ files using `cp`. (Note: You'll need to do this individually for each of the two FASTQ files. We haven't learned yet how to do this with a wildcard.)
+3. Create a new backup directory, then use a wildcard to move all of your backup files there.
+4. Change the permissions on all of your backup files to be write-protected.
 
 <br>
 <br>
@@ -526,10 +526,10 @@ Starting in the `CF_Shell/untrimmed_fastq/` directory, do the following:
 <details>
 <summary>Solution - Working with files</summary>
 
-1. `rm -r backup`  
-2. `cp SRR098026.fastq SRR098026-backup.fastq` and `cp SRR097977.fastq SRR097977-backup.fastq`  
-3. `mkdir backup` and `mv *-backup.fastq backup`  
-4. `chmod -w backup/*-backup.fastq`  
+1. `rm -r backup`
+2. `cp SRR098026.fastq SRR098026-backup.fastq` and `cp SRR097977.fastq SRR097977-backup.fastq`
+3. `mkdir backup` and `mv *-backup.fastq backup`
+4. `chmod -w backup/*-backup.fastq`
 
 It's always a good idea to check your work with `ls -l backup`. You should see something like:
 

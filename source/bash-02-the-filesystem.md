@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -230,8 +230,8 @@ SRR097977.fastq  SRR098026.fastq
 The `cd` command takes an argument which is a directory name. Directories can be specified using either a *relative* path or a full *absolute* path. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory, then enter the `pwd` command.
 
 ~~~
-$ cd  
-$ pwd  
+$ cd
+$ pwd
 ~~~
 
 You will see:

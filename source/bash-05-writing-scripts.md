@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -101,7 +101,7 @@ The text at the bottom of the screen shows the keyboard shortcuts for performing
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
 > use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
 > editor called `notepad` that can be run from the command line in the same
-> way as `nano` for the purposes of this lesson.  
+> way as `nano` for the purposes of this lesson.
 >
 > No matter what editor you use, you will need to know the default location where it searches
 > for files and where files are saved. If you start an editor from the shell, it will (probably)
@@ -197,7 +197,7 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 
 Next we'll edit the script to tell us when it's done.
 
-Let's open `bad-reads-script.sh` and add the line `echo "Script finished!"` after the `grep` command and save the file.  
+Let's open `bad-reads-script.sh` and add the line `echo "Script finished!"` after the `grep` command and save the file.
 
 ~~~
 nano bad-reads-script.sh
