@@ -159,7 +159,7 @@ breakout room.
 
 ![Posting messages to Slack](images/Module00_slack.png)
 
-  - Slack messages will be posted to the **22022-02-computational-foundations-workshop** channel.
+  - Slack messages will be posted to the **2022-07-computational-foundations** channel.
     Click on the channel in the left pane (1) to select this channel.
   - You can type in the **message field** (2); click **send** (3) to
     post your message to everyone.
@@ -169,7 +169,7 @@ breakout room.
 
 
 ### Exercise: Responding in Slack thread
-What is one thing you hope to learn today or tomorrow?
+What is one thing you hope to learn in this workshop?
 <br/>
 <br/>
 
