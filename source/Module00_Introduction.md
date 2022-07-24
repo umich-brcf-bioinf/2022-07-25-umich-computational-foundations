@@ -54,8 +54,8 @@ a[target="_blank"]::after {
 | ![](images/Module00_headshots/headshot_mccwen.jpg) | ![](images/Module00_headshots/headshot_damki.jpg) | ![](images/Module00_headshots/headshot_imorse.jpg) | ![](images/Module00_headshots/headshot_dengkw.jpg) |
 |  **Crystal** | **Dana** | **Irene**| **Kaiwen** |
 | | | |
-| ![](images/Module00_headshots/headshot_meese.jpg) | ![](images/Module00_headshots/headshot_mkdohert.jpg) | ![](images/Module00_headshots/headshot_jrhemama.jpg) |
-| **Marisa** | **Matt** | **Rhema** |
+| ![](images/Module00_headshots/headshot_meese.jpg) | ![](images/Module00_headshots/headshot_mkdohert.jpg) |
+|  **Marisa** | **Matt** |
 
 <br/>
 
