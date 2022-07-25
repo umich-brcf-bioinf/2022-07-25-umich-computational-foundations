@@ -710,24 +710,6 @@ mathematical (arithmetic) operators including:</p>
 <pre class="r"><code># multiply the object &#39;human_chr_number&#39; by 2
 human_chr_number * 2</code></pre>
 <pre><code>[1] 46</code></pre>
-<blockquote>
-<h2 id="exercise-compute-the-golden-ratio">Exercise: Compute the golden
-ratio</h2>
-<p>One approximation of the golden ratio (φ) can be found by taking the
-sum of 1 and the square root of 5, and dividing by 2 as in the example
-above. Compute the golden ratio to 3 digits of precision using the
-<code>sqrt()</code> and <code>round()</code> functions. Hint: remember
-the <code>round()</code> function can take 2 arguments.</p>
-</blockquote>
-<details>
-<summary>
-Solution
-</summary>
-<pre class="r"><code>round((1 + sqrt(5))/2, digits = 3)</code></pre>
-<pre><code>[1] 1.618</code></pre>
-Notice that you can place one function inside of another.
-</details>
-<p><br></p>
 </div>
 </div>
 <div id="vectors" class="section level1">
@@ -856,7 +838,7 @@ Solution
 </summary>
 <ol style="list-style-type: decimal">
 <li><code>countries[3]</code></li>
-<li><code>length(coutnries)</code></li>
+<li><code>length(countries)</code></li>
 <li><code>c()</code></li>
 <li><code>populations * 2</code></li>
 </ol>
@@ -989,24 +971,6 @@ c(&quot;Lesotho&quot;, &quot;Canada&quot;) %in% countries</code></pre>
 <pre><code>[1] TRUE TRUE</code></pre>
 <blockquote>
 <h2 id="review-exercise-1">Review Exercise 1</h2>
-<p>What data types/modes are the following vectors?</p>
-<ol style="list-style-type: decimal">
-<li><code>continents</code></li>
-<li><code>populations</code></li>
-</ol>
-</blockquote>
-<details>
-<summary>
-Solution
-</summary>
-<pre class="r"><code>typeof(continents)</code></pre>
-<pre><code>[1] &quot;character&quot;</code></pre>
-<pre class="r"><code>typeof(populations)</code></pre>
-<pre><code>[1] &quot;double&quot;</code></pre>
-</details>
-<p><br></p>
-<blockquote>
-<h2 id="review-exercise-2">Review Exercise 2</h2>
 <p>Add the following values to the specified vectors:</p>
 <ol style="list-style-type: decimal">
 <li>To the <code>continents</code> vector add: “South America”</li>
@@ -1026,32 +990,7 @@ populations</code></pre>
 </details>
 <p><br></p>
 <blockquote>
-<h2 id="review-exercise-3">Review Exercise 3</h2>
-<p>Make the following change to the <code>countries</code> vector:</p>
-<ol style="list-style-type: decimal">
-<li>Create a new version of <code>countries</code> that does not contain
-Bolivia and then</li>
-<li>Add 2 NA values to the end of <code>countries</code></li>
-</ol>
-<p><strong>Hint</strong>: Before starting, your vector should look like
-this in ‘Environment’:</p>
-<p><code>chr [1:7] "Thailand" "Lesotho" "Suriname" "Canada" "Bolivia" NA "Estonia"</code>.</p>
-<p><strong>If not</strong> recreate the vector by running this
-expression:</p>
-<p><code>countries &lt;- c("Thailand", "Lesotho", "Suriname", "Canada", "Bolivia", NA, "Estonia")</code></p>
-</blockquote>
-<details>
-<summary>
-Solution
-</summary>
-<pre class="r"><code>countries &lt;- countries[-5]
-countries &lt;- c(countries, NA, NA)
-countries</code></pre>
-<pre><code>[1] &quot;Thailand&quot; &quot;Lesotho&quot;  &quot;Suriname&quot; &quot;Canada&quot;   NA         &quot;Estonia&quot;  NA         NA        </code></pre>
-</details>
-<p><br></p>
-<blockquote>
-<h2 id="review-exercise-4">Review Exercise 4</h2>
+<h2 id="review-exercise-2">Review Exercise 2</h2>
 <p>Using indexing, create a new vector named <code>combined</code> that
 contains:</p>
 <ul>
@@ -1070,7 +1009,7 @@ combined</code></pre>
 </details>
 <p><br></p>
 <blockquote>
-<h2 id="review-exercise-5">Review Exercise 5</h2>
+<h2 id="review-exercise-3">Review Exercise 3</h2>
 <p>What type of data is <code>combined</code>? Why?</p>
 </blockquote>
 <details>

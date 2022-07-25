@@ -231,21 +231,6 @@ human_chr_number <- 23
 human_chr_number * 2
 ```
 
-> ## Exercise: Compute the golden ratio
->
-> One approximation of the golden ratio (φ) can be found by taking the sum of 1 and the square root of 5, and dividing by 2 as in the example above. Compute the golden ratio to 3 digits of precision using the `sqrt()` and `round()` functions. Hint: remember the `round()` function can take 2 arguments.
-
-<details>
-<summary>Solution</summary>
-
-```{r, purl = FALSE}
-round((1 + sqrt(5))/2, digits = 3)
-```
-Notice that you can place one function inside of another.
-</details>
-<br>
-
-
 # Vectors
 
 Vectors are probably the most commonly used object type in R. **A vector is a collection of values that are all of the same type (numbers, characters, etc.)**. One of the most common ways to create a vector is to use the `c()` function - the "concatenate" or "combine" function. Inside the function you may enter one or more values; for multiple values, separate each value with a comma:
@@ -366,7 +351,7 @@ Notice in the operation above that R inserts an `NA` value to extend our vector 
 <summary>Solution</summary>
 
 1. `countries[3]`
-2. `length(coutnries)`
+2. `length(countries)`
 3. `c()`
 4. `populations * 2`
 </details>
@@ -455,25 +440,8 @@ Sometimes, you may wish to find out if a specific value (or several values) is p
 c("Lesotho", "Canada") %in% countries
 ```
 
+
 > ## Review Exercise 1
->
-> What data types/modes are the following vectors?
->
-> 1. `continents`
-> 2. `populations`
-
-<details>
-<summary>Solution</summary>
-
-```{r, purl = FALSE}
-typeof(continents)
-typeof(populations)
-```
-</details>
-<br>
-
-
-> ## Review Exercise 2
 >
 > Add the following values to the specified vectors:
 >
@@ -492,33 +460,7 @@ populations
 </details>
 <br>
 
-> ## Review Exercise 3
-> Make the following change to the `countries` vector:
->
-> 1. Create a new version of `countries` that does not contain Bolivia and then
-> 2. Add 2 NA values to the end of `countries`
->
-> **Hint**: Before starting, your vector should look like this in 'Environment':
->
-> `chr [1:7] "Thailand" "Lesotho" "Suriname" "Canada" "Bolivia" NA "Estonia"`.
->
-> **If not** recreate the vector by running this expression:
->
-> `countries <- c("Thailand", "Lesotho", "Suriname", "Canada", "Bolivia", NA, "Estonia")`
-
-<details>
-<summary>Solution</summary>
-
-```{r, purl = FALSE}
-countries <- countries[-5]
-countries <- c(countries, NA, NA)
-countries
-```
-</details>
-<br>
-
-
-> ## Review Exercise 4
+> ## Review Exercise 2
 >
 > Using indexing, create a new vector named `combined` that contains:
 >
@@ -538,7 +480,7 @@ combined
 
 
 
-> ## Review Exercise 5
+> ## Review Exercise 3
 > What type of data is `combined`? Why?
 
 <details>

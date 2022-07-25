@@ -590,7 +590,7 @@ class="section level2">
 <p>A <strong>data frame is the standard way in R to store tabular
 data</strong>. Remember, a data frame is a collection of vectors, all of
 which have the same length. Using only two functions, we can learn a lot
-about out data frame including some summary statistics as well as well
+about our data frame including some summary statistics as well as well
 as the “structure” of the data frame. Let’s examine what each of these
 functions can tell us:</p>
 <pre class="r"><code>## get summary statistics on a data frame
@@ -740,8 +740,8 @@ reordered_continents &lt;- factor(gapminder$continent, levels = names(sort(table
 
 # And let&#39;s quickly look at the result using the head() function
 head(reordered_continents, 20)</code></pre>
-<pre><code> [1] Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Europe Europe Europe
-[16] Europe Europe Europe Europe Europe
+<pre><code> [1] Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Asia   Europe Europe Europe Europe
+[17] Europe Europe Europe Europe
 Levels: Oceania Americas Europe Asia Africa</code></pre>
 <p>Now we see our plot has be reordered:</p>
 <pre class="r"><code>plot(reordered_continents)</code></pre>
