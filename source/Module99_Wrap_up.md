@@ -43,7 +43,10 @@ that will enable more efficient, reproducible, and impactful computational resea
 
 - We will email you a link to the final session recordings by next week.
 
-- The website/notes for this workshop and the <a class="external" href="https://umbioinfcoreworkshops.slack.com" target="_blank">UM Bioinformatics Core Workshop Slack channel</a> will be available.
+- This workshop website will be available.
+
+- The <a class="external" href="https://umbioinfcoreworkshops.slack.com" target="_blank">UM Bioinformatics Core Workshop Slack channel</a> will be available 
+for 90 days.
 
 ---
 
@@ -51,6 +54,7 @@ that will enable more efficient, reproducible, and impactful computational resea
 
 ### Workshop environment
 - BASH/RStudio workshop compute environment will be available until this coming Monday.
+  - _Please save all your R scripts now_ so that we can "right-size" the compute environment immediately following today's workshop session.
 - You can download files from the workshop environment from your terminal/command line window as below.
   (You will need to substitute your actual workshop username and type workshop password when prompted.)
   ```
@@ -67,7 +71,6 @@ to consider:
 
 - Some handy Bash cheatsheets:
   - <a class="external" target="_blank" href="https://files.fosswire.com/2007/08/fwunixref.pdf">https://files.fosswire.com/2007/08/fwunixref.pdf</a>
-  - <a class="external" target="_blank" href="http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html">http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html</a>
 - And a nifty collection of <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank" class="external">cheatsheets for R</a> and links to download some our favorites:
   - <a class="external" target="_blank" href="http://github.com/rstudio/cheatsheets/blob/main/base-r.pdf">Base R</a>
   - <a class="external" target="_blank" href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data transformation with dplyr</a>
@@ -108,8 +111,8 @@ to consider:
 | ![](images/Module00_headshots/headshot_mccwen.jpg) | ![](images/Module00_headshots/headshot_damki.jpg) | ![](images/Module00_headshots/headshot_imorse.jpg) | ![](images/Module00_headshots/headshot_dengkw.jpg) |
 |  **Crystal** | **Dana** | **Irene**| **Kaiwen** |
 | | | |
-| ![](images/Module00_headshots/headshot_meese.jpg) | ![](images/Module00_headshots/headshot_mkdohert.jpg) |
-| **Marisa** | **Matt** |
+| ![](images/Module00_headshots/headshot_meese.jpg) | ![](images/Module00_headshots/headshot_mkdohert.jpg) | ![](images/Module00_headshots/headshot_weishwu.jpg) |
+| **Marisa** | **Matt** | **Weisheng** |
 
 <br/>
 
