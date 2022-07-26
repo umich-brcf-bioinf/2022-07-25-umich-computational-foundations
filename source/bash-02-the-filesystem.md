@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -230,8 +230,8 @@ SRR097977.fastq  SRR098026.fastq
 The `cd` command takes an argument which is a directory name. Directories can be specified using either a *relative* path or a full *absolute* path. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory, then enter the `pwd` command.
 
 ~~~
-$ cd  
-$ pwd  
+$ cd
+$ pwd
 ~~~
 
 You will see:
@@ -261,11 +261,11 @@ $ cd CF_Shell/.hidden
 ~~~
 
 
-These two commands have the same effect, they both take us to the `.hidden` directory. The first uses the absolute path, giving the full address from the home directory. The second uses a relative path, giving only the address from the working directory. A full path always starts with a `/`. A relative path does not.
+These two commands have the same effect, they both take us to the `.hidden` directory. The first uses the absolute path, giving the full address from the root directory. The second uses a relative path, giving only the address from the working directory, currently 'home'. A full path always starts with a `/`. A relative path does not.
 
 A relative path is like getting directions from someone on the street. They tell you to "go right at the stop sign, and then turn left on Main Street". That works great if you're standing there together, but not so well if you're trying to tell someone how to get there from another country. A full path is like GPS coordinates. It tells you exactly where something is no matter where you are right now.
 
-You can usually use either a full path or a relative path depending on what is most convenient. If we are in the home directory, it is more convenient to enter the full path. If we are in the working directory, it is more convenient to enter the relative path since it involves less typing.
+You can usually use either a full path or a relative path depending on what is most convenient. If we are in the far inside an unknown set of nested directories, it is often more convenient to enter the full path to a new location. If our current working directory is relatively close to our intended location, it is more convenient to enter the relative path, since it involves less typing.
 
 Over time, it will become easier for you to keep a mental note of the structure of the directories that you are using and how to quickly navigate amongst them.
 
@@ -300,7 +300,9 @@ Using the filesystem diagram below, if `pwd` displays `/Users/thing`, what will 
 
 ### Navigational Shortcuts
 
-The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`/`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in `root` directories will require special permissions which are not discussed here, so it’s best to avoid them and work within your home directory. Dealing with the `home` directory is very common. The tilde character, `~`, is a shortcut for your home directory. In our case, the `root` directory is __two__ levels above our `home` directory, so `cd` or `cd ~` will take you to `/home/workshop/<username>` and `cd /` will take you to `/`. Navigate to the `CF_Shell` directory:
+The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`/`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in `root` directories will require special permissions which are not discussed here, so it’s best to avoid them and work within your home directory.
+
+Dealing with the `home` directory is very common. The tilde character, `~`, is a shortcut for your home directory. In our case, the `root` directory is __two__ levels above our `home` directory, so `cd` or `cd ~` will take you to `/home/workshop/<username>` and `cd /` will take you to `/`. Navigate to the `CF_Shell` directory:
 
 ~~~
 $ cd

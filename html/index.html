@@ -13,7 +13,7 @@
 
 <title>Computational Foundations Workshop</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -66,6 +66,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -86,6 +87,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -238,7 +242,7 @@ $(document).ready(function () {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -251,7 +255,7 @@ $(document).ready(function () {
   <a href="Module00_Introduction.html">Intro</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Bash Shell
      
     <span class="caret"></span>
@@ -278,7 +282,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     R and RStudio
      
     <span class="caret"></span>
@@ -291,7 +295,7 @@ $(document).ready(function () {
       <a href="r-02-r-basics.html">R Basics</a>
     </li>
     <li>
-      <a href="r-03-basics-factors-dataframes.html">R Basics Continued - Factors and Data Frames</a>
+      <a href="r-03-basics-continued.html">R Basics Continued</a>
     </li>
     <li>
       <a href="r-04-bioconductor.html">Using Packages from Bioconductor</a>
@@ -451,8 +455,8 @@ Scripts</a></td>
 </tr>
 <tr class="even">
 <td align="left">9:10</td>
-<td align="left"><a href="r-03-basics-factors-dataframes.html">R Basics:
-Factors and Data Frames</a></td>
+<td align="left"><a href="r-03-basics-continued.html">R Basics
+Continued</a></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>

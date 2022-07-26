@@ -26,8 +26,8 @@ navbar:
           href: r-01-introduction.html
         - text: "R Basics"
           href: r-02-r-basics.html
-        - text: "R Basics Continued - Factors and Data Frames"
-          href: r-03-basics-factors-dataframes.html
+        - text: "R Basics Continued"
+          href: r-03-basics-continued.html
         - text: "Using Packages from Bioconductor"
           href: r-04-bioconductor.html
         - text: "Data Wrangling and Analyses with Tidyverse"
