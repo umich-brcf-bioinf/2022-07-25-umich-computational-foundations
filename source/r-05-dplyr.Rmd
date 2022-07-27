@@ -326,7 +326,7 @@ gapminder_wide <- gapminder %>%
 gapminder_wide
 ```
 
-The opposite operation of `pivot_wider()` is taken care by `pivot_longer()`. We specify the names of the new columns, and here add `-CHROM` as this column shouldn't be affected by the reshaping:
+The opposite operation of `pivot_wider()` is taken care by `pivot_longer()`. We specify the names of the new columns, and here add `-country` as this column shouldn't be affected by the reshaping:
 
 ```{r}
 gapminder_wide %>%
@@ -334,5 +334,5 @@ gapminder_wide %>%
 ```
 # Resources
 
-* [Handy dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
-* [Much of this lesson was copied or adapted from Jeff Hollister's materials](http://usepa.github.io/introR/2015/01/14/03-Clean/)
+* [Handy dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
+* [Much of this lesson was copied or adapted from Jeff Hollister's materials](http://home.cc.umanitoba.ca/~gersteia/MBIO7040/05-dplyr.html)
