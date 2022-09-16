@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -25,25 +25,6 @@ pre {
 }
 
 </style>
-
-<!--
----
-title: "Getting help with R"
-teaching: 10
-exercises: 5
-questions:
-- "How do I get help using R and RStudio?"
-objectives:
-- "Locate help for an R function using `?`, `??`, and `args()`"
-- "Check the version of R"
-- "Be able to ask effective questions when searching for help on forums or using web searches"
-
-keypoints:
-- "R provides thousands of functions for analyzing data, and provides several way to get help"
-- "Using R will mean searching for online help, and there are tips and resources on how to search effectively"
-source: Rmd
----
--->
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")

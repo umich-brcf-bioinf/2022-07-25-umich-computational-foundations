@@ -1,11 +1,11 @@
 ---
-title: "Using packages from Bioconductor"
+title: "Using packages"
 output:
         html_document:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -26,26 +26,6 @@ pre {
 
 </style>
 
-<!--
----
-title: Using packages from Bioconductor
-teaching: 10
-exercises: 3
-questions:
-- "How do I use packages from the Bioconductor repository?"
-objectives:
-- "Describe what the Bioconductor repository is and what it is used for"
-- "Describe how Bioconductor differs from CRAN"
-- "Search Bioconductor for relevent packages"
-- "Install a package from Bioconductor"
-keypoints:
-- "Bioconductor is an alternative package repository for bioinformatics packages."
-- "Installing packages from Bioconductor requires a new method, since it is not compatible with the `install.packages()` function used for CRAN."
-- "Check Bioconductor to see if there is a package relevent to your analysis before writing code yourself."
-source: Rmd
----
--->
-
 ```{r chunk_options, include=FALSE}
 source("../bin/chunk-options.R")
 
@@ -55,61 +35,70 @@ knitr_fig_path("04-")
 
 <!-- example of rendered lesson https://datacarpentry.org/genomics-r-intro/02-r-basics/index.html -->
 
-## Installing packages from somewhere besides CRAN?
+# Packages
 
-In some cases, you may want to use a specialized package that is not hosted on [CRAN](https://cran.r-project.org/) (the Comprehensive R Archive Network). This may be because the package is so new that it hasn't yet been submitted to CRAN, or it could be that it is on a focal topic that has an alternative repository. One major example of an alternative repository source is [Bioconductor](https://bioconductor.org/), which has a mission of "promot[ing] the statistical analysis and comprehension of current and emerging high-throughput biological assays." This means that many if not all of the packages available on Bioconductor are focused on the analysis of biological data, and that it can be a great place to look for tools to help you analyze your -omics datasets!
+So far we have used commands that only require what is known as "base R." But R is a highly extensible language with thousands of packages (or libraries) available for installation. Packages can be installed from a variety of sources, but the three most common are:
 
-## So how do I use it?
+1. [CRAN (the Comprehensive R Archive Network)](https://cran.r-project.org/)
+2. [Bioconductor](https://bioconductor.org/)
+3. Individual repositories on GitHub.
 
-Since access to the [Bioconductor](https://bioconductor.org/) repository is not built in to base R 'out of the box', there are a couple steps needed to install packages from this alternative source. We will work through the steps (only 2!) to install a package to help with the VCF analysis we are working on, but you can use the same approach to install any of the many thousands of available packages.
+By way of brief orientation, packages on CRAN and Bioconductor can be trusted to have met some basic functionality and quality tests owing to their respective review processes. Packages found on GitHub are not subject to any review, but many development versions of packages on CRAN and Bioconductor can be found on GitHub.
 
-![screenshot of bioconductor homepage](images/bioconductor_website_screenshot.jpg)
+Packages on CRAN tend to be more general purpose, whereas Bioconductor packages are meant to facilitate "rigorous and reproducible analysis of data from current and emerging biological assays." In other words, Bioconductor is specialized for Bioinformatics.
 
-## First, install the `BiocManager` package
+# Installing packages
 
-The first step is to install a package that *is* on CRAN, `BiocManager`. This package will allow us to use it to install packages from Bioconductor. You can think of Bioconductor kind of like an alternative app store for your phone, except instead of apps you are installing packages, and instead of your phone it's your local R package library.
+## From CRAN
 
-```{r install-biocmanager, eval = FALSE}
-# install the BiocManager from CRAN using the base R install.packages() function
-install.packages("BiocManager")
-```
+To install a package from CRAN, you can run something like:
 
-To check if this worked (and also so you can make a note of the version for reproducibility purposes), you can run `BiocManager::version()` and it should give you the version number.
+~~~
+# Do not run, this is already installed for us
+install.packages('tidyverse')
+~~~
 
-```{r check-bioconductor-version, eval = FALSE}
-# to make sure it worked, check the version
-BiocManager::version()
-```
+## From Bioconductor
 
-# Second, install the DESeq2 package from Bioconductor using `BiocManager`
+To install a package from Bioconductor, you first need the `BiocManager` package. Then you can give the name of the package to the installer, as in:
 
-The following command is how you **would** install the `DESeq2` package. Since it is already installed on the instance in preparation for the RNA-seq Demystified Workshop, we will not install it.
+~~~
+# Do not run
+install.packages('BiocManager')
 
-```{r install-DESeq2, eval = FALSE}
-BiocManager::install("DESeq2")
-```
+# The :: notation before the install() tells R to use the function from BiocManager
+BiocManager::install('DESeq2')
+~~~
 
-Note, many packages have dependencies which also get installed along the way. The R console prints out the status of the installation in case of errors.
+## From GitHub
 
-> ## Note: Installing packages from Bioconductor vs from CRAN
->
-> Some packages are only available on CRAN, others only on Bioconductor. Many Bioconductor packages have dependencies that are in CRAN. `BiocManager::install()` will install packages from CRAN and Bioconductor (it is a wrapper around `install.packages()` that adds some extra features). There are other benefits to using `BiocManager::install()` for Bioconductor packages, many of which are outlined [here](https://www.bioconductor.org/install/). In short, Bioconductor packages have a release cycle that is different from CRAN and the `install()` function is aware of that difference, so it helps to keep package versions in line with one another in a way that doesn't generally happen with the base R `install.packages()`.
->
+To install packages from GitHub one can use the `remotes::install_github()` function. For example:
 
+~~~
+# Do not run
+# To install the package at https://github.com/sartorlab/methylSig/
+# The format is <repository_owner>/<repository_name>
+remotes::install_github('sartorlab/methylSig')
+~~~
 
+## One installer to rule them all
 
-# Search for Bioconductor packages based on your analysis needs
+It turns out that `BiocManager::install()` can do all of the above for you. In particular, the function will interpret any library with a `/` passed to it as a GitHub repository, and it will determine whether other packages are on CRAN or Bioconductor and fetch as appropriate. For example, you could install all three packages above with:
+
+~~~
+# Do not run
+BiocManager::install(c('tidyverse', 'DESeq2', 'sartorlab/methylSig'))
+~~~
+
+# Search for Bioconductor packages
 
 While this workshop series focuses on differential expression analysis of RNA-seq data, there are many different types of data and analyses that bioinformaticians may want to work with. Sometimes you may get a new dataset and not know exactly where to start with analyzing or visualizing it. The Bioconductor package search view can be a great way to browse through the packages that are available.
 
+There are several thousand packages available through the Bioconductor website. It can be a bit of a challenge to find what you want, but one helpful resource is the [package search page](https://bioconductor.org/packages/release/BiocViews.html#___Software) (pictured below).
+
 ![screenshot of bioconductor search](images/bioconductor_search.jpg)
 
-> ## Tip: Searching for packages on the Bioconductor website
->
-> There are several thousand packages available through the Bioconductor website. It can be a bit of a challenge to find what you want, but one helpful resource is the [package search page](https://bioconductor.org/packages/release/BiocViews.html#___Software).
->
-
-## Resources
+# Resources
 
 - [Bioconductor](https://bioconductor.org/)
 - [Bioconductor package search](https://bioconductor.org/packages/release/BiocViews.html#___Software)

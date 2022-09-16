@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -101,7 +101,7 @@ The text at the bottom of the screen shows the keyboard shortcuts for performing
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
 > use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
 > editor called `notepad` that can be run from the command line in the same
-> way as `nano` for the purposes of this lesson.  
+> way as `nano` for the purposes of this lesson.
 >
 > No matter what editor you use, you will need to know the default location where it searches
 > for files and where files are saved. If you start an editor from the shell, it will (probably)
@@ -159,7 +159,7 @@ Use `nano README.txt` to open the file. Add today's date and then use <kbd>Ctrl<
 
 ## Writing scripts
 
-A really powerful thing about the command line is that you can write scripts. Scripts let you save commands to run them and also lets you put multiple commands together. Though writing scripts may require an additional time investment initially, this can save you time as you run them repeatedly. Scripts can also address the challenge of reproducibility: if you need to repeat an analysis, you retain a record of your command history within the script.
+A really powerful thing that we are now prepared for is writing scripts. Scripts let you save commands to run them, and also lets you put multiple commands together in an organized block. Though writing scripts may require an additional time investment initially, this can save you time as you run them repeatedly. Scripts can also address the challenge of reproducibility: if you need to repeat an analysis, you retain a record of your command history within the script.
 
 One thing we will commonly want to do with sequencing results is pull out bad reads and write them to a file to see if we can figure out what's going on with them. We're going to look for reads with long sequences of N's like we did before, but now we're going to write a script, so we can run it each time we get new sequences, rather than type the code in by hand each time.
 
@@ -197,7 +197,7 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 
 Next we'll edit the script to tell us when it's done.
 
-Let's open `bad-reads-script.sh` and add the line `echo "Script finished!"` after the `grep` command and save the file.  
+Let's open `bad-reads-script.sh` and add the line `echo "Script finished!"` after the `grep` command and save the file.
 
 ~~~
 nano bad-reads-script.sh
@@ -213,9 +213,9 @@ Script finished!
 <br>
 <br>
 
-## Making the script into a program
+## Making the script into an executable program
 
-We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell the computer that this script is a program by making the script file executable. We can do this by changing the file permissions. We talked about permissions in [an earlier episode](bash-03-working-with-files.html).
+We had to type `bash` because we needed to tell the computer to use the `bash` program to operate on our `bad-reads-script.sh` file. As another option, we can turn this script into its own executable program. To do this, we just need to change the file permissions, and make the script file executable. We talked about permissions in [an earlier episode](bash-03-working-with-files.html).
 
 First, let's look at the current permissions.
 

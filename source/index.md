@@ -54,7 +54,7 @@ body, td {
 | Time | Topic |
 | :-----  | :------------------------------------ |
 |  9:00 | Review |
-|  9:10 | [R Basics: Factors and Data Frames](r-03-basics-factors-dataframes.html) |
+|  9:10 | [R Basics Continued](r-03-basics-continued.html) |
 |       | [Data Wrangling and Analysis with tidyverse](r-05-dplyr.html) |
 |       | **Break** |
 |       | [Data Visualization with ggplot2](r-06-data-visualization.html) |

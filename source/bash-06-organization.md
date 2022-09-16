@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -46,9 +46,9 @@ keypoints:
 
 # Getting your project started
 
-Project organization is a very important part of an analysis project, and yet is often overlooked amidst the excitement of getting a first look at new data. Of course, while it's best to get yourself organized before you even begin your analyses, it's never too late to start, either.  
+Project organization is a very important part of an analysis project, and yet is often overlooked amidst the excitement of getting a first look at new data. Of course, while it's best to get yourself organized before you even begin your analyses, it's never too late to start, either.
 
-You should approach your sequencing project similarly to how you do a biological experiment and this ideally begins with experimental design. We're going to assume that you've already designed a beautiful sequencing experiment to address your biological question, collected appropriate samples, and that you have enough statistical power to answer the questions you're interested in asking. These steps are all incredibly important, but beyond the scope of our course. For all of those steps (collecting specimens, extracting DNA, prepping your samples) you've likely kept a lab notebook that details how and why you did each step. However, the process of documentation doesn't stop at the sequencer!  
+You should approach your sequencing project similarly to how you do a biological experiment and this ideally begins with experimental design. We're going to assume that you've already designed a beautiful sequencing experiment to address your biological question, collected appropriate samples, and that you have enough statistical power to answer the questions you're interested in asking. These steps are all incredibly important, but beyond the scope of our course. For all of those steps (collecting specimens, extracting DNA, prepping your samples) you've likely kept a lab notebook that details how and why you did each step. However, the process of documentation doesn't stop at the sequencer!
 
 Genomics projects can quickly accumulate hundreds of files across tens of folders. Every computational analysis you perform over the course of your project is going to create many files, which can especially become a problem when you'll inevitably want to run some of those analyses again. For instance, you might have made significant headway into your project, but then have to remember the PCR conditions you used to create your sequencing library months prior.
 
@@ -60,9 +60,9 @@ Other questions might arise along the way:
 
 Good documentation is key to avoiding this issue, and luckily enough, recording your computational experiments is even easier than recording lab data. Copy/Paste will become your best friend, sensible file names will make your analysis understandable by you and your collaborators, and writing the methods section for your next paper will be easy! Remember that in any given project of yours, it's worthwhile to consider a future version of yourself as an entirely separate collaborator. The better your documenation is, the more this 'collaborator' will feel indebted to you!
 
-With this in mind, let's have a look at the best practices for documenting your genomics project. Your future self will thank you.  
+With this in mind, let's have a look at the best practices for documenting your genomics project. Your future self will thank you.
 
-In this exercise we will setup a file system for the project we will be working on during this workshop.  
+In this exercise we will setup a file system for the project we will be working on during this workshop.
 
 We will start by creating a directory that we can use for the rest of the workshop. First navigate to your home directory. Then confirm that you are in the correct directory using the `pwd` command.
 
@@ -74,10 +74,10 @@ $ pwd
 You should see the output:
 
 ~~~
-/home/workshop/<username>  
+/home/workshop/<username>
 ~~~
 
-> Tip  
+> Tip
 > If you aren't in your home directory, the easiest way to get there is to enter the command `cd` without any arguments, which returns you to home.
 
 <br>
@@ -85,7 +85,7 @@ You should see the output:
 
 ## Challenge - A sensible folder structure
 
-Create the following directories inside `CF_Shell`:   
+Create the following directories inside `CF_Shell`:
 
 - `docs`
 - `data`
@@ -152,11 +152,11 @@ View the commands that you have used so far during this session using `history`:
 $ history
 ~~~
 
-The history likely contains many more commands than you have used for the current project. Let's view the last several commands that focus on just what we need for this project.   
+The history likely contains many more commands than you have used for the current project. Let's view the last several commands that focus on just what we need for this project.
 
 View the last n lines of your history (where n = approximately the last few lines you think relevant). For our example, we will use the last 7:
 
-~~~   
+~~~
 $ history | tail -n 7
 ~~~
 
@@ -164,7 +164,7 @@ $ history | tail -n 7
 <br>
 
 ## Challenge - Use history to create a record of our work
-Using your knowledge of the shell, use the append redirect `>>` to create a file called `workshop_log_XXXX_XX_XX.txt` (Use the four-digit year, two-digit month, and two digit day, e.g. `workshop_log_2017_10_27.txt`)  
+Using your knowledge of the shell, use the append redirect `>>` to create a file called `workshop_log_XXXX_XX_XX.txt` (Use the four-digit year, two-digit month, and two digit day, e.g. `workshop_log_2017_10_27.txt`)
 
 <br>
 <br>
@@ -182,7 +182,7 @@ Note we used the last 7 lines as an example, the number of lines may vary.
 <br>
 <br>
 
-You may have noticed that your history contains the `history` command itself. To remove this redundancy from our log, let's use the `nano` text editor to fix the file:  
+You may have noticed that your history contains the `history` command itself. To remove this redundancy from our log, let's use the `nano` text editor to fix the file:
 
 ~~~
 $ nano workshop_log_2017_10_27.txt
@@ -208,11 +208,11 @@ From the `nano` screen, you can use your cursor to navigate, type, and delete an
 > | <kbd>Ctrl</kbd>-<kbd>W</kbd> | to search |
 
 
-Add a date line and comment to the line where you have created the directory. Recall that any text on a line after a `#` is ignored by bash when evaluating the text as code. For example:   
+Add a date line and comment to the line where you have created the directory. Recall that any text on a line after a `#` is ignored by bash when evaluating the text as code. For example:
 
 ~~~
-# 2017_10_27   
-# Created sample directories for the Data Carpentry workshop  
+# 2017_10_27
+# Created sample directories for the Data Carpentry workshop
 ~~~
 
 Next, remove any lines of the history that are not relevant by navigating to those lines and using your delete key. Save your file and close `nano`.

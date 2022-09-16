@@ -5,7 +5,7 @@ output:
             includes:
                 in_header: header.html
             theme: paper
-            toc: false
+            toc: true
             number_sections: false
             fig_caption: false
             markdown: GFM
@@ -75,10 +75,10 @@ A *shell* is a computer program that presents a command line interface which all
 
 There are many reasons to learn about the shell:
 
-* Many bioinformatics tools can only be used through a command line interface. Many more have features and parameter options which are not available in the GUI. BLAST is an example. Many of the advanced functions are only accessible to users who know how to use a shell.  
-* The shell makes your work less boring. In bioinformatics you often need to repeat tasks with a large number of files. With the shell, you can automate those repetitive tasks and leave you free to do more exciting things.  
-* The shell makes your work less error-prone. When humans do the same thing a hundred different times (or even ten times), they're likely to make a mistake. Your computer can do the same thing a thousand times with no mistakes.  
-* The shell makes your work more reproducible. When you carry out your work in the command-line (rather than a GUI), your computer keeps a record of every step that you've carried out, which you can use to re-do your work when you need to. It also gives you a way to communicate unambiguously what you've done, so that others can inspect or apply your process to new data.  
+* Many bioinformatics tools can only be used through a command line interface. Many more have features and parameter options which are not available in the GUI. BLAST is an example. Many of the advanced functions are only accessible to users who know how to use a shell.
+* The shell makes your work less boring. In bioinformatics you often need to repeat tasks with a large number of files. With the shell, you can automate those repetitive tasks and leave you free to do more exciting things.
+* The shell makes your work less error-prone. When humans do the same thing a hundred different times (or even ten times), they're likely to make a mistake. Your computer can do the same thing a thousand times with no mistakes.
+* The shell makes your work more reproducible. When you carry out your work in the command-line (rather than a GUI), your computer keeps a record of every step that you've carried out, which you can use to re-do your work when you need to. It also gives you a way to communicate unambiguously what you've done, so that others can inspect or apply your process to new data.
 * Many bioinformatic tasks require large amounts of computing power and can't realistically be run on your own machine. These tasks are best performed using remote computers or cloud computing, which can only be accessed through a shell.
 
 In this lesson you will learn how to use the command line interface to move around in your file system.
@@ -106,7 +106,7 @@ ssh <username>@bfx-workshop01.med.umich.edu
 
 You will need to enter the password that you were provided before the workshop.
 
-> Note: As you type your password, nothing on the screen will change, no `*` characters will show up, etc. After you press enter, you'll receive a response.
+> Note: As you type your password, nothing on the screen will change - no `*` characters will show up, etc. After you press enter, you'll receive a response.
 
 If you haven't connected to the remote system previously, you'll see a message like the following:
 
@@ -134,7 +134,7 @@ ssh <username>@bfx-workshop01.med.umich.edu
 
 You will need to enter the password that you were provided before the workshop.
 
-> Note: As you type your password, nothing on the screen will change, no `*` characters will show up, etc. After you press enter, you'll receive a response.
+> Note: As you type your password, nothing on the screen will change - no `*` characters will show up, etc. After you press enter, you'll receive a response.
 
 If you haven't connected to the remote system previously, you'll get a prompt asking if you're sure you want to connect to this new system. Type `yes` and press enter, and then you will proceed logging in.
 
@@ -308,7 +308,7 @@ $ cd
 then enter:
 
 ~~~
-$ cd she<tab>
+$ cd CF_S<tab>
 ~~~
 
 The shell will fill in the rest of the directory name for `CF_Shell`.
@@ -322,7 +322,7 @@ $ cd untrimmed_fastq
 
 Using tab complete can be very helpful. However, it will only autocomplete a file or directory name if you've typed enough characters to provide a unique identifier for the file or directory you are trying to access.
 
-For example, if we now try to list the files which names start with `SR` by using tab complete:  
+For example, if we now try to list the files which names start with `SR` by using tab complete:
 
 ~~~
 $ ls SR<tab>
@@ -355,6 +355,6 @@ Displays the name of every program that starts with `pw`.
 
 ## Summary
 
-We now know how to move around our file system using the command line. This gives us an advantage over interacting with the file system through a GUI as it allows us to work on a remote server, carry out the same set of operations on a large number of files quickly, and opens up many opportunities for using bioinformatic software that is only available in command line versions.
+We now know how to move around our file system using the command line. This provides certain advantage over interacting with the file system through a GUI. It allows us to work on a remote server, carry out the same set of operations on a large number of files quickly, and opens up many opportunities for using command line software packages, e.g. for bioinformatics analyses.
 
 In the next few episodes, we'll be expanding on these skills and seeing how using the command line shell enables us to make our workflow more efficient and reproducible.
